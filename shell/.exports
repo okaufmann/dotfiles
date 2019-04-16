@@ -1,0 +1,39 @@
+# Make vim the default editor
+export EDITOR="vim"
+
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto"
+
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="$ORANGE"
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# PATH extensions
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
+export PATH="/Users/${USER}/google-cloud-sdk/bin:$PATH"
+export PATH="/Users/${USER}/Library/Android/sdk/emulator:$PATH"
+export PATH="/Users/${USER}/Code/tools:$PATH"
+
+# other env vars
+export ANDROID_HOME="/Users/${USER}/Library/Android/sdk"
+
+export GOPATH=$HOME/Code/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH="/usr/local/sbin:$PATH"
+
+# Prefer US English and use UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# fix Setting locale failed error
+export LC_CTYPE=en_US.utf-8
+
+export PATH="/usr/local/opt/node@8/bin:$PATH"

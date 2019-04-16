@@ -1,0 +1,97 @@
+alias f="forge"
+alias dc="docker-compose"
+alias jigsaw="./vendor/bin/jigsaw $@"
+
+alias reloadcli="source $HOME/.zshrc"
+alias zshrc="code ~/.zshrc"
+alias d="./d $@"
+alias publickey="cat ~/.ssh/id_rsa.pub"
+# alias cleardns="sudo killall -HUP mDNSResponder; sleep 2; echo macOS DNS Cache Reset"
+alias ocr='screencapture -i ~/tmp/screenshot.png && tesseract ~/tmp/screenshot.png stdout | pbcopy && rm -f ~/tmp/screenshot.png'
+
+# CLI improved (https://remysharp.com/2018/08/23/cli-improved)
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
+
+alias top="sudo htop"
+
+# Redis
+alias flush-redis="redis-cli FLUSHALL"
+
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias dotfiles="code ~/.dotfiles"
+alias hosts="sudo code /etc/hosts"
+
+alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\" | xargs git branch -d"
+
+# PHP
+alias phpunit="vendor/bin/phpunit"
+alias phpunitw="phpunit-watcher watch"
+# alias a="php artisan"
+alias c="composer"
+alias cu="composer update"
+alias cr="composer require"
+alias ci="composer install"
+alias cda="composer dump-autoload -o"
+# alias hostfile="sudo vi /etc/hosts"
+alias deploy='envoy run deploy'
+alias deploy-code='envoy run deploy-code'
+alias mfs='php artisan migrate:fresh --seed'
+alias dracaris='git reset --hard;git clean -df'
+# alias p="phpunit"
+# alias pf="phpunit --filter "
+alias sshconfig="code ~/.ssh/config"
+alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
+
+# Tool replacements
+# alias cat=bat
+# alias ping='prettyping --nolegend'
+alias man=tldr
+
+# JavaScript
+alias jest="./node_modules/.bin/jest"
+
+# Git
+alias git="hub"
+# alias gc="git checkout"
+# alias gpo="git push origin"
+# alias gm="git merge"
+# alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Fast open
+alias o="open ."
+
+# List all files colorized in long format
+alias l="ls -laF"
+
+# VSCode
+# alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Flush Directory Service cache
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
+# Lock the screen
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Empty the Trash on all mounted volumes and the main HDD
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Scape webpage
+alias scrape="scrapeUrl"
+
+# Switch NPM
+alias npmnpm="npm config set registry https://registry.npmjs.org"
