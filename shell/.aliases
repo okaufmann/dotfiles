@@ -55,6 +55,7 @@ alias jest="./node_modules/.bin/jest"
 
 # Git
 alias git="hub"
+alias wip="commit 'wip'"
 # alias gc="git checkout"
 # alias gpo="git push origin"
 # alias gm="git merge"

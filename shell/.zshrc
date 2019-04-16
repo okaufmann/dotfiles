@@ -104,6 +104,7 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Enable autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.dotfiles/shell/hub.bash_completion.sh
 
 #set numeric keys
 # 0 . Enter
