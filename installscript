@@ -6,6 +6,8 @@
 # rm -rf $HOME/.oh-my-zsh
 # curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
+echo 'Create symlinks'
+echo '------------'
 
 # Add global gitignore
 rm $HOME/.global-gitignore
@@ -30,8 +32,10 @@ ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 rm $HOME/.mackup.cfg
 ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 
-# Fix missing font characters (see https://github.com/robbyrussell/oh-my-zsh/issues/1906)
-cd ~/.oh-my-zsh/themes/
+echo 'Install zsh theme remy'
+echo '------------'
+rm $HOME/.oh-my-zsh/themes/remy.zsh-theme
+ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/themes/remy.zsh-theme
 # git checkout d6a36b1 agnoster.zsh-theme
 
 # Activate z
@@ -45,6 +49,8 @@ cd ~/.oh-my-zsh/themes/
 # php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 # ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
+echo 'Install cgr'
+echo '------------'
 composer global require consolidation/cgr
 
 # if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
