@@ -22,6 +22,7 @@ alias flush-redis="redis-cli FLUSHALL"
 
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias dotfiles="code ~/.dotfiles"
+alias cddotfiles="cd ~/.dotfiles"
 alias hosts="sudo code /etc/hosts"
 
 alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\" | xargs git branch -d"
@@ -29,6 +30,9 @@ alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\"
 # PHP
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
+alias pw="phpunit-watcher watch"
+alias p="phpunit $@"
+alias pf="phpunit --filter $@"
 # alias a="php artisan"
 alias c="composer"
 alias cu="composer update"
@@ -77,6 +81,9 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Ports
+alias ports="lsof -nP -i4TCP | grep LISTEN"
 
 # Flush Directory Service cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"

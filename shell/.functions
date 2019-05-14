@@ -8,10 +8,11 @@ function yii() {
 
 function ips() {
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
+    type=${2:-A}
     for i in "${nameservers[@]}";
     do
         echo "$i"
-        dig @"$i" +nocmd "$1" A +multiline +noall +answer
+        dig @"$i" +nocmd "$1" $type +multiline +noall +answer
         echo
     done
 }
@@ -20,6 +21,10 @@ function whatgit() {
     days=${1:-2}
     echo "gitlogs of the last $days days"
     cd ~/Code && git standup -s -d "$days" -D local -m 3
+}
+
+function wholisten() {
+    lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
 # Create a new directory and enter it
