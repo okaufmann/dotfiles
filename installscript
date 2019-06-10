@@ -112,12 +112,11 @@ echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
 brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
 
-# echo 'Install php'
-# echo '-----------'
-# brew install php@7.0
-# brew install php@7.1
-# brew install php@7.2
-# brew install php@7.3
+echo 'Install php'
+echo '-----------'
+brew install php@7.1
+brew install php@7.2
+brew install php@7.3
 
 # echo 'Install imagemagick'
 # echo '-------------------'
@@ -131,17 +130,17 @@ brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlpret
 # echo '-----------------'
 # pecl install memcached
 
-# echo 'Install xdebug'
-# echo '--------------'
-# pecl install xdebug
+echo 'Install xdebug'
+echo '--------------'
+pecl install xdebug
 
 # echo 'Install redis'
 # echo '-------------'
 # pecl install redis
 
-# echo 'Install laravel envoy'
-# echo '---------------------'
-# composer global require "laravel/envoy=~1.0"
+echo 'Install laravel envoy'
+echo '---------------------'
+cgr "laravel/envoy=~1.0"
 
 echo 'Install phpunit-watcher'
 echo '-----------------------'

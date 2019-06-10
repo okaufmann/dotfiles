@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Make vim the default editor
 export EDITOR="vim"
 
@@ -40,3 +42,5 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 export PATH="$PATH:$HOME/Code/tools/flutter/bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
+export PATH="$PATH:$HOME/Library/Python/3.7/bin"

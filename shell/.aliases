@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias f="forge"
 alias dc="docker-compose"
 alias jigsaw="./vendor/bin/jigsaw $@"

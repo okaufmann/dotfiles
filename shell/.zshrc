@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
+# Setup xdebug
+export XDEBUG_CONFIG="idekey=VSCODE"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -60,13 +63,13 @@ DEFAULT_USER="okaufmann"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  laravel5
-  yarn
-  npm
-  brew
-  z
-  artisan
+    git
+    laravel5
+    yarn
+    npm
+    brew
+    z
+    artisan
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -132,11 +135,11 @@ bindkey -s "^[Oo" "/"
 # Load the shell dotfiles, and then some:
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.dotfiles/shell/.{exports,aliases,functions}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
 for file in ~/.dotfiles-custom/shell/.{exports,aliases,functions,zshrc}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
