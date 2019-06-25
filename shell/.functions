@@ -116,6 +116,10 @@ function scheduler() {
     done
 }
 
+function checkLinks() {
+    mixed-content-scanner scan $@
+}
+
 # Switch PHP versions
 function phpv() {
     valet stop
