@@ -135,3 +135,34 @@ function phpv() {
 alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
 alias php73="phpv php@7.3"
+
+function bitCountForMask {
+    local -i count=0
+    local mask="${1##0x}"
+    local digit
+
+    while [ "$mask" != "" ]; do
+        digit="${mask:0:1}"
+        mask="${mask:1}"
+        case "$digit" in
+            [fF]) count=count+4 ;;
+            [eE]) count=count+3 ;;
+            [cC]) count=count+2 ;;
+            8) count=count+1 ;;
+            0) ;;
+            *)
+                echo 1>&2 "error: illegal digit $digit in netmask"
+                return 1
+                ;;
+        esac
+    done
+
+    echo $count
+}
+
+function scanNetwork() {
+     local defaultNet="192.168.1.0/24"
+     local network="${1:-$defaultNet}"
+     echo "scanning network $network"
+     nmap -sn 192.168.1.0/24 -oG - | awk '/Up$/{print $2 " " $3}'
+}
