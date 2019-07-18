@@ -46,3 +46,5 @@ export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 export PATH="$PATH:/usr/local/opt/swagger-codegen@2/bin"
+
+export PATH="$PATH:$(composer config -g home)/vendor/bin"

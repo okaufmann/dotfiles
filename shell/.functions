@@ -78,13 +78,13 @@ function commit() {
 # push to remote origin
 function push() {
     branch=$(git branch | awk '/\*/ { print $2; }')
-    git push -u origin $branch
+    git push origin $branch
 }
 
 # force push current branch to remote origin
 function pushforce() {
     branch=$(git branch | awk '/\*/ { print $2; }')
-    git push -u origin +$branch
+    git push origin +$branch
 }
 
 function xdebug() {
