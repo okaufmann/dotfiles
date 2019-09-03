@@ -77,8 +77,9 @@ function commit() {
 
 # push to remote origin
 function push() {
+    target=${1:-origin}
     branch=$(git branch | awk '/\*/ { print $2; }')
-    git push origin $branch
+    git push $target $branch
 }
 
 # force push current branch to remote origin
