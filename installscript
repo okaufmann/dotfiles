@@ -72,9 +72,9 @@ composer global require consolidation/cgr
 # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
-# echo 'Install node'
-# echo '-----------'
-# brew install node@8
+echo 'Install fnm node version manager'
+echo '-----------'
+brew install Schniz/tap/fnm
 
 # echo 'Install pkg-config'
 # echo '------------------'
