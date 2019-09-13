@@ -4,6 +4,11 @@ function a() {
     php artisan "$@"
 }
 
+function v() {
+    vapor "$@"
+}
+
+
 function yii() {
     php yii "$@"
 }
