@@ -93,9 +93,13 @@ function pushforce() {
     git push origin +$branch
 }
 
+function phpversion() {
+    version=$(php --version | head -n 1 | cut -d " " -f 2 | cut -d "." -f 1,2)
+    echo $version
+}
+
 function xdebug() {
-    phpVersion=$(php -r "echo PHP_VERSION;")
-    currentVersion=${phpVersion:0:3};
+    currentVersion=$(phpversion)
     iniFileLocation="/usr/local/etc/php/${currentVersion}/conf.d/ext-xdebug.ini";
     if [ ! -f "$iniFileLocation" ]; then
         echo "zend_extension=\"xdebug.so\""  > /usr/local/etc/php/${currentVersion}/conf.d/ext-xdebug.ini
@@ -112,6 +116,7 @@ function xdebug() {
         echo "xdebug is now inactive";
     fi
     brew services restart "php@${currentVersion}"
+    valet restart
 }
 
 function scheduler() {
