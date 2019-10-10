@@ -8,7 +8,6 @@ function v() {
     vapor "$@"
 }
 
-
 function yii() {
     php yii "$@"
 }
@@ -176,4 +175,11 @@ function scanNetwork() {
      local network="${1:-$defaultNet}"
      echo "scanning network $network"
      nmap -sn 192.168.1.0/24 -oG - | awk '/Up$/{print $2 " " $3}'
+}
+
+function removeVendors() {
+    local projectsFolder='~/Code';
+    local folder="${1:-$projectsFolder}";
+    cd $folder && find . -name "node_modules" -exec rm -rf '{}' +
+    cd $folder && find . -name "vendor" -exec rm -rf '{}' +
 }
