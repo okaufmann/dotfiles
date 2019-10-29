@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-# # Install zsh
-# echo 'Install oh-my-zsh'
-# echo '-----------------'
-# rm -rf $HOME/.oh-my-zsh
-# curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+# Hide "last login" line when starting a new terminal session
+touch $HOME/.hushlogin
+
+# Install zsh
+echo 'Install oh-my-zsh'
+echo '-----------------'
+rm -rf $HOME/.oh-my-zsh
+curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+chsh -s `which zsh`
+
+echo 'Installing zsh plugins'
+echo '------------'
+git clone https://github.com/jessarcher/zsh-artisan.git ~/.oh-my-zsh/custom/plugins/artisan
 
 echo 'Create symlinks'
 echo '------------'
@@ -35,50 +43,32 @@ ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 echo 'Install zsh theme remy'
 echo '------------'
 rm $HOME/.oh-my-zsh/themes/remy.zsh-theme
+# link theme
 ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/themes/remy.zsh-theme
-# git checkout d6a36b1 agnoster.zsh-theme
 
 # Activate z
-# cd ~/.dotfiles/shell
-# chmod +x z.sh
+cd ~/.dotfiles/shell
+chmod +x z.sh
 
-echo 'Install composer'
+
+echo 'Install homebrew'
 echo '----------------'
-cd ~/.dotfiles
-EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
-
-if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
-then
-    echo 'ERROR: Invalid Composer installer signature'
-    rm composer-setup.php
-else
-    php composer-setup.php --quiet
-    rm composer-setup.php
-    echo 'move composer to /usr/local/bin/composer'
-    sudo mv -f composer.phar /usr/local/bin/composer
-fi
-
-
-echo 'Install cgr'
-echo '------------'
-composer global require consolidation/cgr
-
-# echo 'Install homebrew'
-# echo '----------------'
-# echo install homebrew
-# sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
-# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+echo install homebrew
+sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo 'Install fnm node version manager'
 echo '-----------'
 brew install Schniz/tap/fnm
 
-# echo 'Install pkg-config'
-# echo '------------------'
-# brew install pkg-config
+fnm install 12
+fnm default $(node -v)
+fnm install 8
+
+
+echo 'Install pkg-config'
+echo '------------------'
+brew install pkg-config
 
 echo 'Install wget'
 echo '------------'
@@ -104,10 +94,14 @@ brew install ack
 # echo '-------------'
 # brew install doctl
 
-# echo 'Install brew-cask'
-# echo '-----------------'
-# brew tap caskroom/cask
-# brew install brew-cask
+echo 'Install brew-cask'
+echo '-----------------'
+brew tap homebrew/cask-cask
+brew install brew-cask
+
+echo 'Install Visual Studio Code'
+echo '-----------------'
+brew cask install visual-studio-code
 
 echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
@@ -119,13 +113,13 @@ brew install php@7.1
 brew install php@7.2
 brew install php@7.3
 
-# echo 'Install imagemagick'
-# echo '-------------------'
-# brew install imagemagick
+echo 'Install imagemagick'
+echo '-------------------'
+brew install imagemagick
 
-# echo 'Install imagick'
-# echo '---------------'
-# pecl install imagick
+echo 'Install imagick'
+echo '---------------'
+pecl install imagick
 
 # echo 'Install memcached'
 # echo '-----------------'
@@ -135,9 +129,59 @@ echo 'Install xdebug'
 echo '--------------'
 pecl install xdebug
 
-# echo 'Install redis'
-# echo '-------------'
-# pecl install redis
+echo 'Install redis'
+echo '-------------'
+pecl install redis
+
+echo 'Install mysql'
+echo '-------------'
+brew install mysql
+brew services start mysql
+
+echo 'Install redis'
+echo '-------------'
+brew install redis
+brew services start redis
+
+echo 'Install yarn'
+echo '------------'
+brew install yarn
+
+echo 'Install ghostscript'
+echo '-------------------'
+brew install ghostscript
+
+echo 'Install mackup'
+echo '--------------'
+brew install mackup
+
+echo 'Install zsh-autosuggestions'
+echo '---------------------------'
+brew install zsh-autosuggestions
+
+
+echo 'Install composer'
+echo '----------------'
+cd ~/.dotfiles
+EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+then
+    echo 'ERROR: Invalid Composer installer signature'
+    rm composer-setup.php
+else
+    php composer-setup.php --quiet
+    rm composer-setup.php
+    echo 'move composer to /usr/local/bin/composer'
+    sudo mv -f composer.phar /usr/local/bin/composer
+fi
+
+
+echo 'Install cgr'
+echo '------------'
+composer global require consolidation/cgr
 
 echo 'Install laravel envoy'
 echo '---------------------'
@@ -160,33 +204,13 @@ echo '---------------------'
 cgr laravel/valet
 valet install
 
-# echo 'Install mysql'
-# echo '-------------'
-# brew install mysql@5.7
-# brew services start mysql@5.7
-
-echo 'Install yarn'
-echo '------------'
-brew install yarn
-
-echo 'Install ghostscript'
-echo '-------------------'
-brew install ghostscript
-
-echo 'Install mackup'
-echo '--------------'
-brew install mackup
-
-echo 'Install zsh-autosuggestions'
-echo '---------------------------'
-brew install zsh-autosuggestions
-
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
 echo 'All done!'
 echo 'Things to do to make the agnoster terminal theme work:'
 echo '1. Install menlo patched font included in ~/.dotfiles/misc https://gist.github.com/qrush/1595572/raw/Menlo-Powerline.otf'
 echo '2. Install patched solarized theme included in ~/.dotfiles/misc'
+echo '3. Allow sudo permittance with fingerprint. Futher instructions in ~/.dotfiles/misc/fingerprint.sh'
 
 echo '++++++++++++++++++++++++++++++'
 echo 'Some optional tidbits'

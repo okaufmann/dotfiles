@@ -73,8 +73,9 @@ alias o="open ."
 # List all files colorized in long format
 alias l="ls -laF"
 
-# VSCode
+# Editors
 # alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
