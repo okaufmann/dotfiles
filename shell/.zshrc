@@ -148,3 +148,5 @@ unset file
 [[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 # fnm
 eval "$(fnm env --multi)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -183,3 +183,27 @@ function removeVendors() {
     cd $folder && find . -name "node_modules" -exec rm -rf '{}' +
     cd $folder && find . -name "vendor" -exec rm -rf '{}' +
 }
+
+function createDb() {
+    DB=$1;
+    rootpasswd=secret;
+    MYSQL_PWD=${rootpasswd} mysql -uroot -e "CREATE DATABASE $DB CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
+}
+
+function dropDb() {
+    DB=$1;
+    rootpasswd=secret;
+    MYSQL_PWD=${rootpasswd} mysql -uroot -e "DROP DATABASE IF EXISTS $DB;";
+}
+
+function execSql() {
+    rootpasswd=secret;
+    if [ -z "$2" ]; then
+        query=$1
+        MYSQL_PWD=${rootpasswd} mysql -uroot -e "$query";
+    else
+        DB=$1;
+        query=$2;
+        MYSQL_PWD=${rootpasswd} mysql -uroot -D "$DB" -e "$query";
+    fi
+}
