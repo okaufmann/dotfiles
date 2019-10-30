@@ -187,13 +187,13 @@ function removeVendors() {
 function createDb() {
     DB=$1;
     rootpasswd=secret;
-    MYSQL_PWD=${rootpasswd} mysql -uroot -e "CREATE DATABASE $DB CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
+    MYSQL_PWD=${rootpasswd} mysql -uroot -e "CREATE DATABASE \`$DB\` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
 }
 
 function dropDb() {
     DB=$1;
     rootpasswd=secret;
-    MYSQL_PWD=${rootpasswd} mysql -uroot -e "DROP DATABASE IF EXISTS $DB;";
+    MYSQL_PWD=${rootpasswd} mysql -uroot -e "DROP DATABASE IF EXISTS \`$DB\`;";
 }
 
 function execSql() {
