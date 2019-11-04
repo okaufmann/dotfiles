@@ -70,6 +70,7 @@ plugins=(
     brew
     z
     artisan
+    colorize
 )
 
 source $ZSH/oh-my-zsh.sh
