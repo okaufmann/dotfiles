@@ -90,6 +90,10 @@ echo 'Install ack'
 echo '-----------'
 brew install ack
 
+echo 'Install tldr'
+echo '-----------'
+brew install tldr
+
 # echo 'Install doctl'
 # echo '-------------'
 # brew install doctl

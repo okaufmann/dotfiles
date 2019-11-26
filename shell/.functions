@@ -207,3 +207,18 @@ function execSql() {
         MYSQL_PWD=${rootpasswd} mysql -uroot -D "$DB" -e "$query";
     fi
 }
+
+function phpini() {
+    iniPath=$(php -i | grep /.+/php.ini -oE)
+    code $iniPath
+}
+
+function watchlog() {
+    tail -f -n 50 storage/logs/laravel.log
+}
+
+function makeMp4() {
+    source=$1
+    target=$2
+    ffmpeg -i $source -vcodec h264 -acodec mp2 $target
+}
