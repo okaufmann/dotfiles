@@ -42,9 +42,8 @@ ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 
 echo 'Install zsh theme remy'
 echo '------------'
-rm $HOME/.oh-my-zsh/themes/remy.zsh-theme
 # link theme
-ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/themes/remy.zsh-theme
+ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
 
 # Activate z
 cd ~/.dotfiles/shell

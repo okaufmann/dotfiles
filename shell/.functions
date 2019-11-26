@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-function a() {
-    php artisan "$@"
-}
-
 function v() {
     vapor "$@"
 }
