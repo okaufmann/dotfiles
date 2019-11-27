@@ -222,3 +222,14 @@ function makeMp4() {
 function watchdir() {
     watch -n 1 -d find .
 }
+
+function gitmovie() {
+    echo "generating avatars from Gravatar..."
+    perl "$DOTFILESDIR/misc/gen-git-avatars"
+    echo "starting gource..."
+    gource --user-image-dir .git/avatar/ --seconds-per-day 0.1 --auto-skip-seconds 1 -1280x720 -o gource.ppm
+    echo "convert into mp4..."
+    ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i gource.ppm -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
+    echo "cleanup..."
+    rm -f gource.ppm
+}
