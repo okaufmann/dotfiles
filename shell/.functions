@@ -218,3 +218,7 @@ function makeMp4() {
     target=$2
     ffmpeg -i $source -vcodec h264 -acodec mp2 $target
 }
+
+function watchdir() {
+    watch -n 1 -d find .
+}
