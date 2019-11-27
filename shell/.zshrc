@@ -10,8 +10,30 @@ export XDEBUG_CONFIG="idekey=VSCODE"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="remy"
+ZSH_THEME="spaceship"
 DEFAULT_USER="okaufmann"
+
+# CONFIG SPACESHIP
+# based on https://gist.github.com/PierreThiollent/9087a26d56e0704c263baf7e1a5f3827
+# Symbole avant les commandes
+# SPACESHIP_CHAR_SYMBOL="🚀 "
+# Affichage du prefixe avant le repertoire courant
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+# Icone avant le repertoire courant
+SPACESHIP_DIR_PREFIX="🗂  "
+# Icone avant la branche Git
+SPACESHIP_GIT_BRANCH_PREFIX="⚡ "
+SPACESHIP_PROMPT_SUFFIXES_SHOW=true
+# Symbole avant la version du paquet
+SPACESHIP_PROMPT_DEFAULT_PREFIX="- "
+# Desactive l'affichage du temps d'execution du script
+SPACESHIP_EXEC_TIME_SHOW=false
+# Prefixe avant la branche git
+SPACESHIP_GIT_PREFIX="on "
+# Prefixe version de paquet
+SPACESHIP_PACKAGE_PREFIX="is "
+# DEsactive git status
+SPACESHIP_GIT_STATUS_SHOW="false"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
