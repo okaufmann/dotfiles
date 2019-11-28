@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-function v() {
-    vapor "$@"
-}
-
-function yii() {
-    php yii "$@"
-}
-
 function ips() {
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
     type=${2:-A}
@@ -40,12 +32,12 @@ function digga() {
     dig +nocmd "$1" "$type" +multiline +noall +answer
 }
 
-# archive () {
-#    zip -r "$1".zip -i "$1" ;
-# }
-
 function removehost() {
     ssh-keygen -R "$1"
+}
+
+function scanhost() {
+    ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
 }
 
 function weather() {
@@ -142,6 +134,7 @@ alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
 alias php73="phpv php@7.3"
 
+# Network scanner
 function bitCountForMask {
     local -i count=0
     local mask="${1##0x}"
@@ -159,7 +152,7 @@ function bitCountForMask {
             *)
                 echo 1>&2 "error: illegal digit $digit in netmask"
                 return 1
-                ;;
+            ;;
         esac
     done
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Path to dotfiles
 export DOTFILESDIR="$HOME/.dotfiles"
 
 # Make vim the default editor
@@ -11,20 +12,29 @@ export LESS_TERMCAP_md="$ORANGE"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+# Config autosuggest color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
+# setup fzf
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# PATH extensions
+# Composer
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
+export PATH="$PATH:$(composer config -g home)/vendor/bin"
+
+# Google SDK
 export PATH="/Users/${USER}/google-cloud-sdk/bin:$PATH"
-export PATH="/Users/${USER}/Library/Android/sdk/emulator:$PATH"
+
+# Tools
 export PATH="/Users/${USER}/Code/tools:$PATH"
 
-# other env vars
+# Android SDK
 export ANDROID_HOME="/Users/${USER}/Library/Android/sdk"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+export PATH="/Users/${USER}/Library/Android/sdk/emulator:$PATH"
 
+# Go
 export GOPATH=$HOME/Code/go-workspace
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
@@ -37,15 +47,14 @@ export LC_ALL="en_US.UTF-8"
 # fix Setting locale failed error
 export LC_CTYPE=en_US.utf-8
 
+# node
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 
+# Flutter
 export PATH="$PATH:$HOME/Code/tools/flutter/bin"
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
+# Python
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
-export PATH="$PATH:/usr/local/opt/swagger-codegen@2/bin"
-
-export PATH="$PATH:$(composer config -g home)/vendor/bin"
-
+# fnm
 eval `fnm env`

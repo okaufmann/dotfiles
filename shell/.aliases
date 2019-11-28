@@ -1,113 +1,107 @@
 #!/usr/bin/env bash
 
-alias f="forge"
-alias dc="docker-compose"
-alias jigsaw="./vendor/bin/jigsaw $@"
-
-alias reloadcli="source $HOME/.zshrc"
-alias zshrc="code ~/.zshrc"
-alias d="./d $@"
-alias publickey="cat ~/.ssh/id_rsa.pub"
-# alias cleardns="sudo killall -HUP mDNSResponder; sleep 2; echo macOS DNS Cache Reset"
-alias ocr='screencapture -i ~/tmp/screenshot.png && tesseract ~/tmp/screenshot.png stdout | pbcopy && rm -f ~/tmp/screenshot.png'
-
-# CLI improved (https://remysharp.com/2018/08/23/cli-improved)
-# alias cat='bat'
-alias cat='colorize_via_pygmentize'
-alias ping='prettyping --nolegend'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-# add support for ctrl+o to open selected file in VS Code
-
-alias top="sudo htop"
-
 # Redis
+# ---------------
 alias flush-redis="redis-cli FLUSHALL"
 
+# Oh my zsh config helpers
+# ---------------
+alias cddotfiles="cd ~/.dotfiles"
+alias reloadcli="source $HOME/.zshrc"
+
+# Openers
+# ---------------
+alias zshrc="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias dotfiles="code ~/.dotfiles"
-alias cddotfiles="cd ~/.dotfiles"
-alias hosts="sudo code /etc/hosts"
-
-alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\" | xargs git branch -d"
+alias hostfile="sudo code /etc/hosts"
 
 # PHP
+# ---------------
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
 alias pw="phpunit-watcher watch"
 alias p="phpunit $@"
 alias pf="phpunit --filter $@"
-alias a="artisan"
 alias c="composer"
 alias cu="composer update"
 alias cr="composer require"
 alias ci="composer install"
 alias cda="composer dump-autoload -o"
+alias yii="php yii $@"
 
-# alias hostfile="sudo vi /etc/hosts"
+# Laravel
+# ---------------
+alias mfs='php artisan migrate:fresh --seed'
+alias a="artisan"
+alias v="vapor"
 alias deploy='envoy run deploy'
 alias deploy-code='envoy run deploy-code'
 
-alias mfs='php artisan migrate:fresh --seed'
-alias dracaris='git reset --hard;git clean -df'
-# alias p="phpunit"
-# alias pf="phpunit --filter "
-
+# SSH
+# ---------------
 alias sshconfig="code ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
+alias publickey="cat ~/.ssh/id_rsa.pub"
 
-# Tool replacements
-# alias cat=bat
-# alias ping='prettyping --nolegend'
+# Tool replacements & helpers
+# ---------------
 alias man=tldr
+alias cat='colorize_via_pygmentize'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
 alias grep="grep --color=auto"
-
-# JavaScript
-alias jest="./node_modules/.bin/jest"
-
-# Git
-alias git="hub"
-alias wip="commit 'wip'"
-# alias gc="git checkout"
-# alias gpo="git push origin"
-# alias gm="git merge"
-# alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-# Fast open
+alias top="sudo htop"
+alias f="forge"
+alias dc="docker-compose"
+alias jigsaw="./vendor/bin/jigsaw $@"
+alias d="./d $@"
 alias o="open ."
-
+alias jest="./node_modules/.bin/jest"
 # List all files colorized in long format
 alias l="ls -laF"
 
+# Git
+# ---------------
+alias git="hub"
+alias wip="commit 'wip'"
+alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\" | xargs git branch -d"
+alias dracaris='git reset --hard;git clean -df'
+
 # Editors
+# ---------------
 # alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
+# installed via code -> CMD+P -> Shell command -> install...
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
+# MacOS
+# ---------------
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Ports
-alias ports="lsof -nP -i4TCP | grep LISTEN"
-
 # Flush Directory Service cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-
 # Lock the screen
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
+# Networking
+# ---------------
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+# Ports
+alias ports="lsof -nP -i4TCP | grep LISTEN"
+
+# Other
+# ---------------
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# Image to Text converter
+alias ocr='screencapture -i ~/tmp/screenshot.png && tesseract ~/tmp/screenshot.png stdout | pbcopy && rm -f ~/tmp/screenshot.png'
+
 # Scape webpage
 alias scrape="scrapeUrl"
-
-# Switch NPM
-alias npmnpm="npm config set registry https://registry.npmjs.org"
