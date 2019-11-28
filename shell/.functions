@@ -160,10 +160,10 @@ function bitCountForMask {
 }
 
 function scanNetwork() {
-     local defaultNet="192.168.1.0/24"
-     local network="${1:-$defaultNet}"
-     echo "scanning network $network"
-     nmap -sn 192.168.1.0/24 -oG - | awk '/Up$/{print $2 " " $3}'
+    local defaultNet="192.168.1.0/24"
+    local network="${1:-$defaultNet}"
+    echo "scanning network $network"
+    nmap -sn $network -oG - | awk '/Up$/{print $2 " " $3}'
 }
 
 function removeVendors() {
