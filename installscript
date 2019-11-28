@@ -101,9 +101,9 @@ echo 'Install tldr'
 echo '-----------'
 brew install tldr
 
-# echo 'Install doctl'
-# echo '-------------'
-# brew install doctl
+echo 'Install dig'
+echo '-----------'
+brew install dig
 
 echo 'Install brew-cask'
 echo '-----------------'
