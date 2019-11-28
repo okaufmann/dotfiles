@@ -1,0 +1,19 @@
+[push]
+    default = simple
+
+[alias]
+# inspired by https://laravel-news.com/bash-aliases
+    st = status -bs
+    ci = commit
+    co = checkout
+    di = diff
+    dc = diff --cached
+    sg = diff --staged --name-only
+    b = branch
+    fa = fetch --all
+    lg = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short
+    ll = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short -10
+    amend = commit --amend
+    dracarys = "!f() { git reset --hard && git clean -df; }; f"
+    au = add -u
+    ap = add -p

@@ -17,10 +17,13 @@ git clone https://github.com/jessarcher/zsh-artisan.git ~/.oh-my-zsh/custom/plug
 echo 'Create symlinks'
 echo '------------'
 
-# Add global gitignore
+# Add global gitignore and setup editor
 rm $HOME/.global-gitignore
 ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
-git config --global core.excludesfile $HOME/.global-gitignore
+git config --global core.excludesfile "$HOME/.global-gitignore"
+git config --global include.path "$HOME/.dotfiles/config/.gitconfig"
+
+git config --global core.editor "code --wait"
 
 # Symlink zsh prefs
 rm $HOME/.zshrc
