@@ -59,6 +59,7 @@ alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 # alias cat=bat
 # alias ping='prettyping --nolegend'
 alias man=tldr
+alias grep="grep --color=auto"
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"

@@ -5,9 +5,6 @@ export DOTFILESDIR="$HOME/.dotfiles"
 # Make vim the default editor
 export EDITOR="vim"
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
