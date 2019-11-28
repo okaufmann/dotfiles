@@ -226,3 +226,7 @@ function gitmovie() {
     echo "cleanup..."
     rm -f gource.ppm
 }
+
+kraken () {
+    open -na GitKraken --args -p "$(git rev-parse --show-toplevel)"
+}
