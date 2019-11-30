@@ -120,11 +120,29 @@ function checkLinks() {
 
 # Switch PHP versions
 function phpv() {
+    echo "stopping valet"
     valet stop
-    brew unlink php@7.1 php@7.2 php # php@5.6 php@7.0
+
+    echo "stopping all php services"
+    brew services list | awk '{print $1}' | grep php | while read line
+    do
+        brew services stop "$line"
+    done
+
+    echo "unlinking all php version"
+    brew unlink php@7.1 php@7.2 php@7.3 php@7.4 # php@5.6 php@7.0
+
+    echo "link $1"
     brew link --force --overwrite $1
+
+    echo "start $1"
     brew services start $1
+
+    echo "install composer packages"
     composer global update
+    cgr update
+
+    echo "installing valet"
     valet install
 }
 
@@ -133,6 +151,7 @@ function phpv() {
 alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
 alias php73="phpv php@7.3"
+alias php74="phpv php@7.4"
 
 # Network scanner
 function bitCountForMask {
