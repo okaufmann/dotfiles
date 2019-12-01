@@ -56,5 +56,8 @@ export PATH="$PATH:$HOME/Code/tools/flutter/bin"
 # Python
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
+# curl
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
 # fnm
 eval `fnm env`
