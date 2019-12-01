@@ -137,7 +137,7 @@ function phpv() {
     done
 
     echo "unlinking all php version"
-    brew unlink php@7.1 php@7.2 php@7.3 php@7.4 # php@5.6 php@7.0
+    brew unlink php@7.3 php@7.4  # php@7.1 php@7.2 php@5.6 php@7.0
 
     echo "link $1"
     brew link --force --overwrite $1
