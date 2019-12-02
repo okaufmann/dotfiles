@@ -290,3 +290,13 @@ colorize_via_pygmentize() {
         fi
     done
 }
+
+# like chrome always in light theme...
+function chromeLight() {
+    defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
+}
+
+# ...but need to be able to experiment with darkmode in web development
+function chromeAuto() {
+    defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool no
+}
