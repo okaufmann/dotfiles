@@ -112,9 +112,9 @@ brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlpret
 
 echo 'Install php'
 echo '-----------'
-brew install php@7.1
 brew install php@7.2
 brew install php@7.3
+brew install php@7.4
 
 echo 'Install imagemagick'
 echo '-------------------'
@@ -157,6 +157,10 @@ brew install mackup
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
+
+echo 'Install zsh-autosuggestions'
+echo '---------------------------'
+brew install prettyping
 
 echo 'Install composer'
 echo '----------------'
