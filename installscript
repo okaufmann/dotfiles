@@ -162,6 +162,14 @@ echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install prettyping
 
+echo 'Install nmap'
+echo '---------------------------'
+brew install nmap
+
+echo 'Install ffmpeg'
+echo '---------------------------'
+brew install ffmpeg
+
 echo 'Install composer'
 echo '----------------'
 cd ~/.dotfiles
