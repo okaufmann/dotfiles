@@ -22,6 +22,7 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 # Composer
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
 export PATH="$PATH:$(composer config -g home)/vendor/bin"
+export COMPOSER_MEMORY_LIMIT=-1
 
 # Google SDK
 export PATH="/Users/${USER}/google-cloud-sdk/bin:$PATH"
