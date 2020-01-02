@@ -97,6 +97,10 @@ echo 'Install nmap'
 echo '-----------'
 brew install nmap
 
+echo 'Install fzf'
+echo '-----------'
+brew install fzf
+
 echo 'Install brew-cask'
 echo '-----------------'
 brew tap homebrew/cask-cask
