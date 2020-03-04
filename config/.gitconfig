@@ -2,8 +2,14 @@
     default = simple
 
 [alias]
-# inspired by https://laravel-news.com/bash-aliases
-    st = status -bs
+    # inspired by https://laravel-news.com/bash-aliases
+    st = "!f(){ git status -bs; printf \"\nIgnored files:\n\"; git ls-files -v | grep "^h " | cut -c 3-; };f"
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+    ; st = status -bs
     ci = commit
     co = checkout
     di = diff
