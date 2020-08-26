@@ -33,7 +33,7 @@ alias yii="php yii $@"
 
 # Laravel
 # ---------------
-alias mfs='php artisan migrate:fresh --seed'
+alias fresh='php artisan migrate:fresh --seed'
 alias a="artisan"
 alias v="vapor"
 alias deploy='envoy run deploy'

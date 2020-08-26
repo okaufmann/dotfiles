@@ -258,7 +258,7 @@ function gitmovie() {
 }
 
 kraken () {
-    open -na GitKraken --args -p "$(git rev-parse --show-toplevel)"
+    /Applications/GitKraken.app/Contents/MacOS/GitKraken -p "$(git rev-parse --show-toplevel)" &>/dev/null &
 }
 
 colorize_via_pygmentize() {
@@ -316,8 +316,4 @@ function testChrome() {
     # - https://gist.github.com/DamonOehlman/7329833#gistcomment-1414202
     rm -rf $HOME/.config/chrome-test
     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --console --no-first-run --user-data-dir=$HOME/.config/chrome-test --use-fake-device-for-media-stream --use-file-for-fake-video-capture=camfake.mjpeg --enable-logging --v=1 --vmodule="*third_party/libjingle/*=3,*=0"
-}
-
-function share() {
-    ngrok http "$(basename "$PWD").novu.io:60" -subdomain=okaufmann -host-header=rewrite
 }
