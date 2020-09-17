@@ -34,11 +34,12 @@ alias yii="php yii $@"
 # Laravel
 # ---------------
 alias fresh='php artisan migrate:fresh --seed'
-alias a="artisan"
+alias a="artisan" # artisan is provided by zsh plugin
 alias v="vapor"
 alias deploy='envoy run deploy'
 alias deploy-code='envoy run deploy-code'
 alias ngrok="$HOME/.composer/global/laravel/valet/vendor/laravel/valet/bin/ngrok"
+alias please="php please $@"
 
 # SSH
 # ---------------
