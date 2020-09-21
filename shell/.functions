@@ -225,9 +225,9 @@ function db {
     if [ "$1" = "refresh" ]; then
         MYSQL_PWD=${rootpasswd} mysql -uroot -e "drop database $2; create database \`$2\` CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
     elif [ "$1" = "create" ]; then
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "create database $2"
+        MYSQL_PWD=${rootpasswd} mysql -uroot -e "create database \`$2\`"
     elif [ "$1" = "drop" ]; then
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "drop database $2"
+        MYSQL_PWD=${rootpasswd} mysql -uroot -e "drop database \`$2\`"
     fi
 }
 
