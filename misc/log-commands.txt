@@ -1,5 +1,0 @@
-tail -f /usr/local/var/log/php-fpm.log
-
-watch -n 1 -d "ps aux | grep fpm"
-
-tail -f /Users/okaufmann/.config/valet/Log/nginx-error.log
