@@ -2,7 +2,7 @@
 
 sudo chmod +w /etc/pam.d/sudo
 
-echo 'Copy the following to your clipboard and ensure it''s the first line (add it if its missing)'
+echo 'Copy the following to your clipboard and ensure it''s the first line (add it if its missing or replace smartcard thing with it)'
 echo
 echo 'auth       sufficient     pam_tid.so'
 echo

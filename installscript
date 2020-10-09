@@ -50,7 +50,6 @@ chmod +x z.sh
 
 echo 'Install homebrew'
 echo '----------------'
-echo install homebrew
 sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
