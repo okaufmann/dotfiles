@@ -40,10 +40,6 @@ ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
 rm $HOME/.vim
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
-# Symlink the Mackup config
-rm $HOME/.mackup.cfg
-ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
-
 echo 'Install zsh theme remy'
 echo '------------'
 ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
@@ -157,10 +153,6 @@ brew install yarn
 echo 'Install ghostscript'
 echo '-------------------'
 brew install ghostscript
-
-echo 'Install mackup'
-echo '--------------'
-brew install mackup
 
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
