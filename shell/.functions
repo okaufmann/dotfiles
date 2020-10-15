@@ -357,3 +357,36 @@ function testChrome() {
     rm -rf $HOME/.config/chrome-test
     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --console --no-first-run --user-data-dir=$HOME/.config/chrome-test --use-fake-device-for-media-stream --use-file-for-fake-video-capture=camfake.mjpeg --enable-logging --v=1 --vmodule="*third_party/libjingle/*=3,*=0"
 }
+
+function speedtest() {
+    local defaultServer="bouygues.iperf.fr"
+    local server="${1:-$defaultServer}"
+    echo "running iperf3 test to server $server"
+    iperf3 -c "$server" -f m -i10
+}
+
+function speedtest-server() {
+    iperf3 -s -f m
+}
+
+function updateAppStore() {
+    # Update App Store apps
+    sudo softwareupdate -i -a
+}
+
+# Guess email for git user
+function email-guess() {
+    GREEN="\033[32m"
+    NOCOLOR="\033[0m"
+
+    remote=`git remote -v | awk '/\(push\)$/ {print $2}'`
+    echo -e "${GREEN}Guessing email based on git repo $remote${NOCOLOR}"
+    email=okaufmann91@gmail.com # default
+
+    if [[ $remote == *github.com:teamnovu* ]]; then
+        email=kaufmann@novu.ch
+    fi
+
+    echo -e "${GREEN}Configuring user.email as $email${NOCOLOR}"
+    git config user.email $email
+}

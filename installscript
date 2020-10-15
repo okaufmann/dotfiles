@@ -26,6 +26,8 @@ git config --global include.path "$HOME/.dotfiles/config/.gitconfig"
 git config --global core.autocrlf false
 git config --global core.eol native
 git config --global core.editor "code --wait"
+# Register git hooks
+git config --global core.hooksPath ~/.dotfiles/git-hooks
 
 echo 'Create symlinks'
 echo '------------'
