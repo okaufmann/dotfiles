@@ -23,3 +23,4 @@
     dracarys = "!f() { git reset --hard && git clean -df; }; f"
     au = add -u
     ap = add -p
+    cara = “!git commit --amend --reset-author”
