@@ -44,6 +44,11 @@ function scanhost() {
     ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
 }
 
+function copysshkey() {
+    local port=${2:-22}
+    ssh-copy-id -i ~/.ssh/id_rsa $1 -p $port
+}
+
 function weather() {
     city="$1"
 
