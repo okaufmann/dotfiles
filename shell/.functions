@@ -134,6 +134,13 @@ function checkLinks() {
     mixed-content-scanner scan $@
 }
 
+function watchfolder() {
+    folder=${1:-$(pwd)}
+
+    echo "start watching $folder"
+    fswatch -r $folder
+}
+
 # Switch PHP versions
 function phpv() {
     echo "stopping valet"
