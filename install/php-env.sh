@@ -46,10 +46,6 @@ else
     sudo mv -f composer.phar /usr/local/bin/composer
 fi
 
-echo 'Install irak/prestissimo'
-echo '---------------------------------'
-composer global require hirak/prestissimo # need to be installed via composer directly
-
 echo 'Install cgr'
 echo '------------'
 composer global require consolidation/cgr
