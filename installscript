@@ -3,6 +3,11 @@
 # Hide "last login" line when starting a new terminal session
 touch $HOME/.hushlogin
 
+echo 'Install fonts'
+echo '-----------------'
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
+
 # Install zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
@@ -101,6 +106,10 @@ brew install nmap
 echo 'Install fzf'
 echo '-----------'
 brew install fzf
+
+echo 'Install fswatch'
+echo '-----------'
+brew install fswatch
 
 echo 'Install brew-cask'
 echo '-----------------'
