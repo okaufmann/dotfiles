@@ -272,6 +272,23 @@ function execSql() {
     fi
 }
 
+function backupLocalDbs() {
+    # edit global client config
+    #
+    # vim ~/.my.cnf
+    #
+    # ```
+    # [client]
+    # user = root
+    # password = secret
+    # ```
+    for DB in $(mysql -e 'show databases' -s --skip-column-names); do
+        echo "backing up $DB..."
+        mysqldump $DB | gzip > "$DB.sql.gz";
+    done
+}
+
+
 function phpini() {
     iniPath=$(php -i | grep /.+/php.ini -oE)
     code $iniPath
