@@ -302,7 +302,7 @@ function phpini() {
 }
 
 function watchlog() {
-    tail -f -n 50 storage/logs/laravel.log
+    tail -f -n 100 storage/logs/laravel.log
 }
 
 function makeMp4() {

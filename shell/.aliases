@@ -64,6 +64,7 @@ alias o="open ."
 alias jest="./node_modules/.bin/jest"
 # List all files colorized in long format
 alias l="ls -laF"
+alias taillog="watchlog"
 
 # Git
 # ---------------
