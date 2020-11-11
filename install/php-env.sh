@@ -67,6 +67,10 @@ echo 'Install mixed-content-scanner-cli'
 echo '---------------------------------'
 cgr spatie/mixed-content-scanner-cli
 
+echo 'Install friendsofphp/php-cs-fixer'
+echo '---------------------------------'
+cgr friendsofphp/php-cs-fixer
+
 echo 'Install laravel valet'
 echo '---------------------'
 cgr laravel/valet
