@@ -106,6 +106,7 @@ brew install nmap
 echo 'Install fzf'
 echo '-----------'
 brew install fzf
+$(brew --prefix)/opt/fzf/install
 
 echo 'Install fswatch'
 echo '-----------'
