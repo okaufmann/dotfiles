@@ -155,6 +155,10 @@ echo 'Install nmap'
 echo '---------------------------'
 brew install nmap
 
+echo 'Install ettercap'
+echo '---------------------------'
+brew install ettercap
+
 echo 'Install ffmpeg'
 echo '---------------------------'
 brew install ffmpeg
