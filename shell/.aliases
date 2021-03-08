@@ -15,6 +15,7 @@ alias zshrc="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias dotfiles="code ~/.dotfiles"
 alias hostfile="sudo code /etc/hosts"
+alias sshconfig="code ~/.ssh/config"
 
 # PHP
 # ---------------
@@ -65,12 +66,13 @@ alias jest="./node_modules/.bin/jest"
 # List all files colorized in long format
 alias l="ls -laF"
 alias taillog="watchlog"
+alias watch='watch '
 
 # Git
 # ---------------
 alias git="hub"
 alias wip="commit 'wip'"
-alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|develop|dev)\" | xargs git branch -d"
+alias cleanbranches="git branch --merged | egrep -v \"(^\*|main|master|develop|dev)\" | xargs git branch -d"
 alias dracaris='git reset --hard;git clean -df'
 
 # Editors
