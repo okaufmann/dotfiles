@@ -1,6 +1,15 @@
 [push]
     default = simple
 
+[init]
+	defaultBranch = main
+
+[pull]
+	ff = only
+
+[fetch]
+	prune = true
+
 [alias]
     # inspired by https://laravel-news.com/bash-aliases
     st = "!f(){ git status -bs; printf \"\nIgnored files:\n\"; git ls-files -v | grep "^h " | cut -c 3-; };f"
