@@ -41,11 +41,17 @@ alias deploy='envoy run deploy'
 alias deploy-code='envoy run deploy-code'
 alias ngrok="$HOME/.composer/global/laravel/valet/vendor/laravel/valet/bin/ngrok"
 alias please="php please $@"
+alias migrate="php artisan migrate"
+alias rollback="php artisan migrate:rollback --step=1"
+alias lpw="php artisan tinker --execute=\"echo Hash::make('$1')\" | pbcopy"
+alias vendorinit="rm -Rf vendor && composer install"
+
 
 # SSH
 # ---------------
 alias sshconfig="code ~/.ssh/config"
-alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
+alias copykey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
+alias copykeyrsa='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias publickey="cat ~/.ssh/id_rsa.pub"
 
 # Tool replacements & helpers
@@ -67,6 +73,8 @@ alias jest="./node_modules/.bin/jest"
 alias l="ls -laF"
 alias taillog="watchlog"
 alias watch='watch '
+alias k='kubectl'
+alias kubeconfig='code ~/.kube/config'
 
 # Git
 # ---------------

@@ -305,7 +305,7 @@ function watchlog() {
 function makeMp4() {
     source=$1
     target=$2
-    ffmpeg -i $source -vcodec h264 -acodec mp2 $target
+    ffmpeg -i $source -vcodec h264 -acodec mp3 $target
 }
 
 function watchdir() {
