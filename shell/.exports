@@ -60,3 +60,6 @@ export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 # curl
 export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# java
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
