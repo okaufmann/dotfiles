@@ -166,6 +166,10 @@ echo 'Install ffmpeg'
 echo '---------------------------'
 brew install ffmpeg
 
+echo 'Install ffmpeg'
+echo '---------------------------'
+brew install gpg
+
 echo 'Install php environment'
 echo '---------------------------'
 sh $HOME/.dotfiles/install/php-env.sh
