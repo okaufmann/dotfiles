@@ -170,6 +170,21 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	Privileges -bool true
 
 ###############################################################################
+# Screenshots                                                                 #
+###############################################################################
+
+# Set default screenshot location
+mkdir -p ~/Desktop/screenshots
+defaults write com.apple.screencapture "location" -string "~/Desktop/screenshots"
+
+# Exclude date and time in screenshot filenames
+# defaults write com.apple.screencapture "include-date" -bool false
+
+# Change the default screenshot file name
+defaults write com.apple.screencapture "name" -string "screenshot"
+
+
+###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 

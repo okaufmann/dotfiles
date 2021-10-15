@@ -428,3 +428,7 @@ function shush() {
 function mitm() {
     sudo ettercap -T -S -i $1 -M arp:remote /$2// /$3//
 }
+
+function silent() {
+   "$@" >& /dev/null
+}

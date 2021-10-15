@@ -1,6 +1,7 @@
 "-------- General -------"
-
 syntax enable
+set background=dark
+colorscheme solarized
 
 "256 colours, please
 set t_Co=256
@@ -17,8 +18,6 @@ set incsearch
 
 "-------- Tabs & indentation -------"
 
-filetype plugin indent on
-set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -35,8 +34,8 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
+
 " Backspace behaviour
-set nocompatible
 set backspace=2
 
 
@@ -68,3 +67,6 @@ augroup END
 "make it easy to edit the vimrc file"
 nmap ,ev :tabedit $MYVIMRC<cr>
 nmap ,<space> :nohlsearch<cr>
+
+
+source ~/.vim/.vimrc

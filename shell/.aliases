@@ -102,7 +102,7 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Flush Directory Service cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 # Lock the screen
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -124,3 +124,6 @@ alias ocr='screencapture -i ~/tmp/screenshot.png && tesseract ~/tmp/screenshot.p
 
 # Scape webpage
 alias scrape="scrapeUrl"
+
+# Restart touch bar
+alias touchbar="killall ControlStrip"
