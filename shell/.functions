@@ -432,3 +432,9 @@ function mitm() {
 function silent() {
    "$@" >& /dev/null
 }
+
+function kraken() {
+    echo "opening 🐙..."
+    dir="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
+    open gitkraken://repo/$dir
+}
