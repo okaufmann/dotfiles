@@ -78,8 +78,9 @@ alias jest="./node_modules/.bin/jest"
 alias l="ls -laF"
 alias taillog="watchlog"
 alias watch='watch '
-alias k='kubectl'
+alias ku='kubectl'
 alias kubeconfig='code ~/.kube/config'
+alias k='kraken'
 
 # Git
 # ---------------
@@ -127,3 +128,5 @@ alias scrape="scrapeUrl"
 
 # Restart touch bar
 alias touchbar="killall ControlStrip"
+
+
