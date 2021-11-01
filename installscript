@@ -65,7 +65,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install-latest-npm
 nvm install 12
 nvm use 12
