@@ -68,7 +68,9 @@ echo '-----------'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install-latest-npm
 nvm install 12
-nvm use 12
+nvm install 14
+nvm install --lts
+nvm use 16
 
 echo 'Install pkg-config'
 echo '------------------'
