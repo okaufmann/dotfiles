@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Hide "last login" line when starting a new terminal session
 touch $HOME/.hushlogin
+
+echo 'Install homebrew'
+echo '----------------'
+sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup  || true
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo 'Install fonts'
 echo '-----------------'
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install font-fira-code --cask
 
 # Install zsh
 echo 'Install oh-my-zsh'
@@ -49,24 +57,27 @@ ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
 echo 'Install zsh theme remy'
 echo '------------'
+rm $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme || true
 ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
 
-# Activate z
+echo 'Activate z'
+echo '------------'
 cd ~/.dotfiles/shell
 chmod +x z.sh
 
-#install z fork
-git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
-
-echo 'Install homebrew'
-echo '----------------'
-sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo 'install z fork'
+echo '------------'
+git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-nvm install-latest-npm
+
+# source nvm stuff
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 nvm install 12
 nvm install 14
 nvm install --lts
@@ -102,7 +113,7 @@ brew install tldr
 
 echo 'Install dig'
 echo '-----------'
-brew install dig
+brew install bind
 
 echo 'Install nmap'
 echo '-----------'
@@ -117,18 +128,13 @@ echo 'Install fswatch'
 echo '-----------'
 brew install fswatch
 
-echo 'Install brew-cask'
-echo '-----------------'
-brew tap homebrew/cask-cask
-brew install brew-cask
-
 echo 'Install Visual Studio Code'
 echo '-----------------'
-brew cask install visual-studio-code
+brew install --cask  visual-studio-code
 
 echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
-brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip webp-quicklook suspicious-package
+# brew  install --cask --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip webp-quicklook suspicious-package
 
 echo 'Install mysql'
 echo '-------------'
@@ -155,10 +161,6 @@ brew install zsh-autosuggestions
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install prettyping
-
-echo 'Install nmap'
-echo '---------------------------'
-brew install nmap
 
 echo 'Install ettercap'
 echo '---------------------------'

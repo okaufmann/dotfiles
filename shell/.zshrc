@@ -129,7 +129,7 @@ unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Enable autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/shell/hub.bash_completion.sh
 
 #set numeric keys
@@ -159,7 +159,7 @@ bindkey -s "^[Oo" "/"
 # * ~/.extra can be used for other settings you don’t want to commit.
 # * ~/.dotfiles-custom can be used for other settings you don’t want to commit.
 for file in ~/.dotfiles/shell/.{exports,aliases,functions}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
 for file in ~/.dotfiles-custom/shell/.{exports,aliases,functions,zshrc}; do
