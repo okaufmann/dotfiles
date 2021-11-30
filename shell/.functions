@@ -153,7 +153,7 @@ function phpv() {
     done
 
     echo "unlinking all php version"
-    brew unlink php@7.3 php@7.4 php@8.0
+    brew unlink php@7.3 php@7.4 php@8.0 php@8.1
 
     echo "link $1"
     brew link --force --overwrite $1
@@ -163,7 +163,6 @@ function phpv() {
 
     echo "install composer packages"
     composer global update
-    cgr update
 
     echo "installing valet"
     valet install
@@ -172,6 +171,7 @@ function phpv() {
 alias php73="phpv php@7.3"
 alias php74="phpv php@7.4"
 alias php8="phpv php@8.0"
+alias php81="phpv php@8.1"
 
 # Network scanner
 function bitCountForMask {

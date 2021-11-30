@@ -5,6 +5,7 @@ echo '-----------'
 brew install php@7.3
 brew install php@7.4
 brew install php@8.0
+brew install php@8.1
 
 echo 'Install php-yaml'
 echo '-----------------'
@@ -45,7 +46,13 @@ echo 'Install friendsofphp/php-cs-fixer'
 echo '---------------------------------'
 composer global require friendsofphp/php-cs-fixer
 
+echo 'Install beyondcode/expose'
+echo '---------------------------------'
 composer global require beyondcode/expose
+
+echo 'Install spatie/x-ray'
+echo '---------------------------------'
+composer global require spatie/x-ray
 
 echo 'Install laravel valet'
 echo '---------------------'
