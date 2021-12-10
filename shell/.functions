@@ -21,7 +21,7 @@ function whatgit() {
     cd ~/Code && git standup -s -d "$days" -D local -m 3
 }
 
-function wholisten() {
+function wholisten() { 
     lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
@@ -153,7 +153,7 @@ function phpv() {
     done
 
     echo "unlinking all php version"
-    brew unlink php@7.3 php@7.4 php@8.0 php@8.1
+    brew unlink php@7.4 php@8.0 php
 
     echo "link $1"
     brew link --force --overwrite $1
