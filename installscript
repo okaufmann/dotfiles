@@ -136,7 +136,7 @@ brew install --cask  visual-studio-code
 
 echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
-# brew  install --cask --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip webp-quicklook suspicious-package
+brew install --cask syntax-highlight qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv  suspicious-package webpquicklook
 
 echo 'Install mysql'
 echo '-------------'

@@ -437,3 +437,16 @@ function kraken() {
     dir="$(cd "$(dirname "$1")" > /dev/null; pwd -P)/$(basename "$1")"
     open gitkraken://repo/$dir
 }
+
+function reloadQuickLook() {
+    # xattr -r ~/Library/QuickLook
+    # xattr -d -r com.apple.quarantine ~/Library/QuickLook
+    qlmanage -r
+    qlmanage -r cache
+    
+    for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+        "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
+        "Terminal" "Transmission" "Twitter" "iCal"; do
+        killall "${app}" > /dev/null 2>&1
+    done
+}
