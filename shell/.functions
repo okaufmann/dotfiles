@@ -402,8 +402,8 @@ function updateAppStore() {
 
 # Guess email for git user
 function email-guess() {
-    private_email=thesheggi@gmail.com
-    novu_email=vonallmen@novu.ch
+    private_email=okaufmann91@gmail.com
+    novu_email=oliver.kaufmann@novu.ch
 
     GREEN="\033[32m"
     NOCOLOR="\033[0m"
