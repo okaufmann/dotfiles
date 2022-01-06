@@ -23,7 +23,7 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Composer
-export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$PATH:$(composer config -g home)/vendor/bin"
 export COMPOSER_MEMORY_LIMIT=-1
 

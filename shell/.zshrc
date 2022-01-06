@@ -129,6 +129,9 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+# load brew binary path
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
 # Enable autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/shell/hub.bash_completion.sh
