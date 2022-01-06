@@ -412,7 +412,7 @@ function email-guess() {
     echo -e "${GREEN}Guessing email based on git repo $remote${NOCOLOR}"
     email=$private_email # default
 
-    if [[ $remote == *github.com:teamnovu* ]]; then
+    if [[ $remote == *github.com[:/]teamnovu* || $remote == *github.com:/teamnovu* ]]; then
         email=$novu_email
     fi
 
