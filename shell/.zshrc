@@ -130,7 +130,7 @@ unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Enable autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/shell/hub.bash_completion.sh
 
 #set numeric keys

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Load Homebrew (M1)
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # Path to dotfiles
 export DOTFILESDIR="$HOME/.dotfiles"
