@@ -402,19 +402,22 @@ function updateAppStore() {
 
 # Guess email for git user
 function email-guess() {
+    private_email=thesheggi@gmail.com
+    novu_email=vonallmen@novu.ch
+
     GREEN="\033[32m"
     NOCOLOR="\033[0m"
 
     remote=`git remote -v | awk '/\(push\)$/ {print $2}'`
     echo -e "${GREEN}Guessing email based on git repo $remote${NOCOLOR}"
-    email=okaufmann91@gmail.com # default
+    email=$private_email # default
 
     if [[ $remote == *github.com:teamnovu* ]]; then
-        email=oliver.kaufmann@novu.ch
+        email=$novu_email
     fi
 
     if [[ $remote == *projects.lernetz.ch* ]]; then
-        email=oliver.kaufmann@novu.ch
+        email=$novu_email
     fi
 
     echo -e "${GREEN}Configuring user.email as $email${NOCOLOR}"
