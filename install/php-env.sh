@@ -1,20 +1,11 @@
 #!/usr/bin/env bash
 
-echo 'Install php'
-echo '-----------'
-brew install php@7.3
-brew install php@7.4
-brew install php@8.0
-brew install php@8.1
-
 echo 'Install php-yaml'
 echo '-----------------'
-brew install libyaml
 pecl install yaml
 
 echo 'Install imagemagick & imagick'
 echo '---------------'
-brew install imagemagick
 pecl install imagick
 
 echo 'Install xdebug'
@@ -25,14 +16,9 @@ echo 'Install redis'
 echo '-------------'
 pecl install redis
 
-echo 'Install composer'
-echo '----------------'
-brew install composer
-
 echo 'Install laravel envoy'
 echo '---------------------'
 composer global require laravel/envoy
-
 
 echo 'Install laravel installer'
 echo '---------------------'
