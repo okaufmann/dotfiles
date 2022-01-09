@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your dotfiles.
+export DOTFILES=$HOME/.dotfiles
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
@@ -131,7 +134,7 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Enable autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.dotfiles/shell/hub.bash_completion.sh
+source $DOTFILES/shell/hub.bash_completion.sh
 
 #set numeric keys
 # 0 . Enter
