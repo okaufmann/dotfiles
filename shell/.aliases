@@ -62,7 +62,7 @@ alias publickey="cat ~/.ssh/id_rsa.pub"
 # Tool replacements & helpers
 # ---------------
 alias man=tldr
-alias cat='colorize_via_pygmentize'
+alias cat="bat -A $@"
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
@@ -76,6 +76,7 @@ alias o="open ."
 alias jest="./node_modules/.bin/jest"
 # List all files colorized in long format
 alias l="ls -laF"
+alias ls="exa -lah $@"
 alias taillog="watchlog"
 alias watch='watch '
 alias ku='kubectl'
