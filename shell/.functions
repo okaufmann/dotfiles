@@ -21,7 +21,7 @@ function whatgit() {
     cd ~/Code && git standup -s -d "$days" -D local -m 3
 }
 
-function wholisten() { 
+function wholisten() {
     lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
@@ -101,12 +101,13 @@ function phprestart() {
 }
 
 function xdebug() {
+    basePath="/opt/homebrew/etc/php"
     currentVersion=$(phpversion)
-    iniFileLocation="/usr/local/etc/php/${currentVersion}/conf.d/ext-xdebug.ini";
+    iniFileLocation="$basePath/${currentVersion}/conf.d/ext-xdebug.ini";
     echo "checking ini file at $iniFileLocation"
     if [ ! -f "$iniFileLocation" ]; then
         echo "creating missing config file"
-        echo "zend_extension=\"xdebug.so\""  > /usr/local/etc/php/${currentVersion}/conf.d/ext-xdebug.ini
+        echo "zend_extension=\"xdebug.so\""  > $basePath/${currentVersion}/conf.d/ext-xdebug.ini
     fi
 
     currentLine=`cat $iniFileLocation | grep xdebug.so`
@@ -327,40 +328,6 @@ kraken () {
     /Applications/GitKraken.app/Contents/MacOS/GitKraken -p "$(git rev-parse --show-toplevel)" &>/dev/null &
 }
 
-colorize_via_pygmentize() {
-    if ! (( $+commands[pygmentize] )); then
-        echo "package 'Pygments' is not installed!"
-        return 1
-    fi
-
-    # If the environment varianle ZSH_COLORIZE_STYLE
-    # is set, use that theme instead. Otherwise,
-    # use the default.
-    if [ -z $ZSH_COLORIZE_STYLE ]; then
-        ZSH_COLORIZE_STYLE="default"
-    fi
-
-    # pygmentize stdin if no arguments passed
-    if [ $# -eq 0 ]; then
-        pygmentize -O style="$ZSH_COLORIZE_STYLE" -g
-        return $?
-    fi
-
-    # guess lexer from file extension, or
-    # guess it from file contents if unsuccessful
-
-    local FNAME lexer
-    for FNAME in "$@"
-    do
-        lexer=$(pygmentize -N "$FNAME")
-        if [[ $lexer != text ]]; then
-            pygmentize -O style="$ZSH_COLORIZE_STYLE" -l "$lexer" "$FNAME"
-        else
-            pygmentize -O style="$ZSH_COLORIZE_STYLE" -g "$FNAME"
-        fi
-    done
-}
-
 # like chrome always in light theme...
 function chromeLight() {
     defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool yes
@@ -443,7 +410,7 @@ function reloadQuickLook() {
     # xattr -d -r com.apple.quarantine ~/Library/QuickLook
     qlmanage -r
     qlmanage -r cache
-    
+
     for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
         "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
         "Terminal" "Transmission" "Twitter" "iCal"; do

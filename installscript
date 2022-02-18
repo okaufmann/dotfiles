@@ -41,19 +41,19 @@ echo 'Create symlinks'
 echo '------------'
 
 # Symlink zsh prefs
-rm $HOME/.zshrc
+rm -f $HOME/.zshrc
 ln -s $HOME/.dotfiles/shell/.zshrc $HOME/.zshrc
 
 # Symlink vim prefs
-rm $HOME/.vimrc
+rm -f $HOME/.vimrc
 ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
-rm $HOME/.vim
+rm -f $HOME/.vim
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
 echo 'Setup git configs'
 echo '------------'
 # Add global gitignore and setup editor
-rm $HOME/.global-gitignore
+rm -f $HOME/.global-gitignore
 ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
 git config --global core.excludesfile "$HOME/.global-gitignore"
 git config --global include.path "$HOME/.dotfiles/config/.gitconfig"

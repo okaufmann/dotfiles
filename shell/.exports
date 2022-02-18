@@ -40,7 +40,7 @@ export PATH="/Users/${USER}/Library/Android/sdk/emulator:$PATH"
 
 # Go
 export GOPATH=$HOME/Code/go-workspace
-export GOROOT=/usr/local/opt/go/libexec
+# export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 
@@ -61,11 +61,8 @@ export PATH="$PATH:$HOME/Code/tools/flutter/bin"
 # Python
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
-# curl
-export PATH="/usr/local/opt/curl/bin:$PATH"
-
-# java
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# dotnet cli tools
+export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
 
 # dont update all other packages when installing a new brew package
 # https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
