@@ -46,6 +46,7 @@ alias deploy='envoy run deploy'
 alias deploy-code='envoy run deploy-code'
 alias ngrok="$HOME/.composer/global/laravel/valet/vendor/laravel/valet/bin/ngrok"
 alias please="php please $@"
+alias mm="php artisan make:migration"
 alias migrate="php artisan migrate"
 alias rollback="php artisan migrate:rollback --step=1"
 alias lpw="php artisan tinker --execute=\"echo Hash::make('$1')\" | pbcopy"
