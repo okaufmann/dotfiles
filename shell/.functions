@@ -131,6 +131,10 @@ function scheduler() {
     done
 }
 
+function mp() {
+     php artisan make:policy "$1Policy" --model="$1"
+}
+
 function checkLinks() {
     mixed-content-scanner scan $@
 }
