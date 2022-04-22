@@ -57,10 +57,6 @@ rm -f $HOME/.global-gitignore
 ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
 git config --global core.excludesfile "$HOME/.global-gitignore"
 git config --global include.path "$HOME/.dotfiles/config/.gitconfig"
-# force default config values to be used
-git config --global core.autocrlf false
-git config --global core.eol native
-git config --global core.editor "code --wait"
 # Register git hooks
 git config --global core.hooksPath $HOME/.dotfiles/git-hooks
 

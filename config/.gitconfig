@@ -1,3 +1,8 @@
+[core]
+    autocrlf = false
+    eol = native
+    editor = code --wait
+
 [push]
     default = simple
 
@@ -5,7 +10,8 @@
 	defaultBranch = main
 
 [pull]
-	ff = only
+    # https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge
+    rebase = true
 
 [fetch]
 	prune = true
