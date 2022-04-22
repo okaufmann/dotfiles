@@ -1,7 +1,7 @@
 "-------- General -------"
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme delek
 
 "256 colours, please
 set t_Co=256
