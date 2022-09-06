@@ -70,6 +70,9 @@ brew update
 brew tap homebrew/bundle
 brew bundle --file $HOME/.dotfiles/Brewfile
 
+# Link Postgres CLI
+brew link --force libpq
+
 echo 'Finalize fzf install'
 echo '------------'
 $(brew --prefix)/opt/fzf/install
