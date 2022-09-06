@@ -1,7 +1,7 @@
 "-------- General -------"
 syntax enable
-set background=dark
-colorscheme delek
+" set background=dark
+" colorscheme delek
 
 "256 colours, please
 set t_Co=256
