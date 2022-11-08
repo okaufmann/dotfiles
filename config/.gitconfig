@@ -38,4 +38,5 @@
     dracarys = "!f() { git reset --hard && git clean -df; }; f"
     au = add -u
     ap = add -p
-    cara = “!git commit --amend --reset-author”
+    cara = "!git commit --amend --reset-author"
+    deploy = "!f() { git commit --allow-empty -m \"deploy\" && git push; }; f"
