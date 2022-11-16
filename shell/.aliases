@@ -44,6 +44,9 @@ alias php7.4="/opt/homebrew/opt/php@7.4/bin/php"
 alias composer8.0="php8.0 $(which composer)"
 alias composer7.4="php7.4 $(which composer)"
 
+alias a80="php8.0 artisan $@"
+alias a74="php7.4 artisan $@"
+
 
 # Laravel
 # ---------------

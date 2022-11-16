@@ -402,6 +402,10 @@ function email-guess() {
         email=oliver.kaufmann@novu.ch
     fi
 
+    if [[ $remote == *gitlab.com:JKwebGmbH* ]]; then
+        email=oliver.kaufmann@novu.ch
+    fi
+
     echo -e "${GREEN}Configuring user.email as $email${NOCOLOR}"
     git config user.email $email
 }
@@ -434,4 +438,20 @@ function reloadQuickLook() {
         "Terminal" "Transmission" "Twitter" "iCal"; do
         killall "${app}" > /dev/null 2>&1
     done
+}
+
+function downgradePdfVersion() {
+    local defaultVersion="1.5"
+    local version="${3:-$defaultVersion}"
+
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=$version -dNOPAUSE -dQUIET -dBATCH -dAutoRotatePages=/None -sOutputFile=$2 $1
+}
+
+function e() {
+
+    if test -f "composer.json"; then
+        phpstorm .
+    else
+        code .
+    fi
 }
