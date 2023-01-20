@@ -143,7 +143,7 @@ function watchfolder() {
     folder=${1:-$(pwd)}
 
     echo "start watching $folder"
-    fswatch -r $folder
+    fswatch --recursive --event-flags --event-flag-separator=" | " --timestamp --format-time="%Y-%m-%d %H:%M:%S %Z: " $folder
 }
 
 # Switch PHP versions
@@ -445,6 +445,14 @@ function downgradePdfVersion() {
     local version="${3:-$defaultVersion}"
 
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=$version -dNOPAUSE -dQUIET -dBATCH -dAutoRotatePages=/None -sOutputFile=$2 $1
+}
+
+function ocrPdf() {
+    local defaultLang="deu"
+    local lang="${2:-$defaultLang}"
+    local output="$(basename $1 .pdf).ocr.pdf"
+    echo "Identifying text in $lang"
+    ocrmypdf -l $lang --redo-ocr --optimize 1 $1 $output
 }
 
 function e() {
