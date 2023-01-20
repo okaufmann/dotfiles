@@ -7,14 +7,14 @@
     default = simple
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [pull]
     # https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge
     rebase = true
 
 [fetch]
-	prune = true
+    prune = true
 
 [alias]
     # inspired by https://laravel-news.com/bash-aliases
