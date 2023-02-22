@@ -2,6 +2,16 @@
     autocrlf = false
     eol = native
     editor = code --wait
+[user]
+	signingKey = ~/.ssh/id_ed25519.pub
+[gpg]
+	program = gpg
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+	gpgsign = true
 
 [push]
     default = simple

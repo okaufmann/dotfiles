@@ -92,9 +92,9 @@ alias l="ls -laF"
 alias ls="exa -lah $@"
 alias taillog="watchlog"
 alias watch='watch '
-alias ku='kubectl'
+alias k='kubectl'
 alias kubeconfig='code ~/.kube/config'
-alias k='kraken'
+alias kr='kraken'
 
 # Git
 # ---------------
