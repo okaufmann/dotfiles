@@ -67,3 +67,15 @@ export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
 # dont update all other packages when installing a new brew package
 # https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# import nvm global bin folder for CLI tools
+currentNvm=$(nvm which current)
+export PATH="$(dirname $currentNvm):$PATH"
+unset currentNvm

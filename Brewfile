@@ -32,6 +32,7 @@ brew "ocrmypdf"
 brew 'svn' # Needed to install fonts
 brew 'mas' # Mac App Store manager
 brew 'libpq' # PostgresQL client
+brew 'jq' # JSON parser
 
 # Spatie Medialibrary
 brew 'jpegoptim'
