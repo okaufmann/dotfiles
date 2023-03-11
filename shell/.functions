@@ -480,7 +480,8 @@ function e() {
 function createUserWithPolicy() {
     local username=$1
     local bucket=$2
-    local argsIam=(--profile wasabi-admin --endpoint-url=https://iam.wasabisys.com)
+    local profile=$3
+    local argsIam=(--profile $3 --endpoint-url=https://iam.wasabisys.com)
 
     # use backspace to ensure alias of cat is not used!
     local policy=$(\cat << EOF
@@ -531,12 +532,13 @@ EOF
 
 function setupS3Bucket() {
     local name=$1
+    local profile=$2
     local defaultRegion="eu-central-2"
-    local region="${2:-$defaultRegion}"
-    local args=(--profile wasabi-admin --endpoint-url="https://s3.${region}.wasabisys.com")
+    local region="${3:-$defaultRegion}"
+    local args=(--profile $profile --endpoint-url="https://s3.${region}.wasabisys.com")
 
     echo
-    echo "Creating the following resources in region $region:"
+    echo "Creating the following resources in region $region using profile $profile:"
     echo "- bucket $name"
     echo "- user $name"
     echo "- policy $name"
@@ -551,7 +553,7 @@ function setupS3Bucket() {
     aws s3api create-bucket $args \
         --bucket $name
 
-    createUserWithPolicy $name $name
+    createUserWithPolicy $name $name $profile
 
     echo
     echo "Endpoint for bucket $name is https://s3.${region}.wasabisys.com"
@@ -562,7 +564,8 @@ function setupS3Bucket() {
 
 function deleteS3User() {
     local name=$1
-    local argsIam=(--profile wasabi-admin --endpoint-url=https://iam.wasabisys.com)
+    local profile=$2
+    local argsIam=(--profile $profile --endpoint-url=https://iam.wasabisys.com)
 
     echo "Detaching all policies from user $name"
     aws iam list-attached-user-policies $argsIam \
@@ -595,12 +598,13 @@ function deleteS3User() {
 
 function destroyS3Resources() {
     local name=$1
+    local profile=$2
     local defaultRegion="eu-central-2"
-    local region="${2:-$defaultRegion}"
-    local args=(--profile wasabi-admin --endpoint-url="https://s3.${region}.wasabisys.com")
+    local region="${3:-$defaultRegion}"
+    local args=(--profile $profile --endpoint-url="https://s3.${region}.wasabisys.com")
 
     echo
-    echo "Deleting the following resources in region $region:"
+    echo "Deleting the following resources in region $region with profile $profile:"
     echo "- bucket $name"
     echo "- user $name"
     echo "- policy $name"
@@ -613,7 +617,7 @@ function destroyS3Resources() {
         return
     fi
 
-    deleteS3User $name
+    deleteS3User $name $profile
 
     echo "Deleting bucket $name"
     aws s3api delete-bucket $args \
