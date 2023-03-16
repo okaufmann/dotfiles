@@ -64,6 +64,9 @@ export PATH="$PATH:$HOME/Library/Python/3.10/bin"
 # dotnet cli tools
 export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
 
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # dont update all other packages when installing a new brew package
 # https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
 export HOMEBREW_NO_AUTO_UPDATE=1
