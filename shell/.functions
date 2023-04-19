@@ -626,3 +626,6 @@ function destroyS3Resources() {
     echo "Bucket $name destroyed"
 }
 
+function d() {
+    command ./d "$@"
+}

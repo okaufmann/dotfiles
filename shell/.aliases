@@ -86,7 +86,6 @@ alias top="sudo htop"
 alias f="forge"
 alias dc="docker-compose"
 alias jigsaw="./vendor/bin/jigsaw $@"
-alias d="./d $@"
 alias o="open ."
 alias jest="./node_modules/.bin/jest"
 # List all files colorized in long format
