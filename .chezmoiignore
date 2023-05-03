@@ -5,5 +5,6 @@ install/
 macos/
 misc/
 shell/
+git-hooks/
 Brewfile
 key.txt.age
