@@ -6,6 +6,7 @@ pecl install yaml
 
 echo 'Install imagemagick & imagick'
 echo '---------------'
+pecl uninstall imagick # needs to be reinstall as imagemagick version could have changed
 pecl install imagick
 
 echo 'Install xdebug'
@@ -43,5 +44,5 @@ composer global require spatie/x-ray -W
 echo 'Install laravel valet'
 echo '---------------------'
 composer global require laravel/valet -W
-valet install
 valet trust
+valet install
