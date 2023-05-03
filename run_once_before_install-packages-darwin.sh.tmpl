@@ -1,6 +1,9 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 
+# Hide "last login" line when starting a new terminal session
+touch $HOME/.hushlogin
+
 echo 'Check for Homebrew and install if we don''t have it'
 echo '----------------'
 if test ! $(which brew); then
