@@ -1,17 +1,11 @@
 # My personal dotfiles
 
-My personal dotfiles.
+My personal dotfiles. I use [chezmoi](https://www.chezmoi.io/) to manage them.
 
-You can install them by cloning the repository as `.dotfiles` in your home directory and running the bootstrap script.
-
-    git clone git@github.com:okaufmann/dotfiles.git ~/.dotfiles
-    cd .dotfiles
-    ./bootstrap
-
-The bootstrap script can be run by cd-ing into the `.dotfiles` directory and performing this command:
+Run the following command in your home directory to install them:
 
 ```bash
-./bootstrap
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --ssh okaufmann
 ```
 
 Feel free to create an issue on this repo if you have any questions about them.

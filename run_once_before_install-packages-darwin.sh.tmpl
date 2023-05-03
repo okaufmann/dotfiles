@@ -19,18 +19,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo '------------'
   git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
   git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
-
-  echo 'Activate z'
-  echo '------------'
-  chmod +x ~/.dotfiles/shell/z.sh
 fi
 
 echo 'Setup git configs'
 echo '------------'
-git config --global core.excludesfile "$HOME/.global-gitignore"
-git config --global include.path "$HOME/.dotfiles/config/.gitconfig"
+git config --global core.excludesfile "$(chezmoi source-path)/.global-gitignore"
+git config --global include.path "$(chezmoi source-path)/config/.gitconfig"
 # Register git hooks
-git config --global core.hooksPath $HOME/.dotfiles/git-hooks
+git config --global core.hooksPath $(chezmoi source-path)/git-hooks
 
 echo 'Install brew packages'
 echo '------------'
@@ -75,8 +71,8 @@ echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
 echo 'All done!'
 echo 'Things to do to make the agnoster terminal theme work:'
-echo '1. Install patched solarized theme included in ~/.dotfiles/misc/iTerm Profile.json'
-echo '2. Allow sudo permittance with fingerprint. Futher instructions in ~/.dotfiles/misc/fingerprint.sh'
+echo '1. Install patched solarized theme included in $(chezmoi source-path)/misc/iTerm Profile.json'
+echo '2. Allow sudo permittance with fingerprint. Futher instructions in $(chezmoi source-path)/misc/fingerprint.sh'
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
 
