@@ -1,0 +1,9 @@
+config/.gitconfig
+README.md
+screenshot.png
+install/
+macos/
+misc/
+shell/
+Brewfile
+key.txt.age

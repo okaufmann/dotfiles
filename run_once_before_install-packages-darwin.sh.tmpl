@@ -1,22 +1,17 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
-
-set -e
-
-# Hide "last login" line when starting a new terminal session
-touch $HOME/.hushlogin
 
 echo 'Check for Homebrew and install if we don''t have it'
 echo '----------------'
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 echo 'Install oh-my-zsh'
 echo '-----------------'
-if test ! $(which omz); then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
   chsh -s `which zsh`
 
@@ -25,36 +20,13 @@ if test ! $(which omz); then
   git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
   git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
 
-  echo 'Install zsh theme remy'
-  echo '------------'
-  rm $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme || true
-  rm $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme || true
-  ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
-  ln -s $HOME/.dotfiles/zshrc/cobalt2.zsh-theme $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme
-
   echo 'Activate z'
   echo '------------'
   chmod +x ~/.dotfiles/shell/z.sh
 fi
 
-echo 'Create symlinks'
-echo '------------'
-
-# Symlink zsh prefs
-rm -f $HOME/.zshrc
-ln -s $HOME/.dotfiles/shell/.zshrc $HOME/.zshrc
-
-# Symlink vim prefs
-rm -f $HOME/.vimrc
-ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
-rm -f $HOME/.vim
-ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
-
 echo 'Setup git configs'
 echo '------------'
-# Add global gitignore and setup editor
-rm -f $HOME/.global-gitignore
-ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
 git config --global core.excludesfile "$HOME/.global-gitignore"
 git config --global include.path "$HOME/.dotfiles/config/.gitconfig"
 # Register git hooks
@@ -66,9 +38,8 @@ echo '------------'
 # Update Homebrew recipes
 brew update
 
-# Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle --file $HOME/.dotfiles/Brewfile
+brew bundle --no-lock --file=$(chezmoi source-path)/Brewfile
 
 # Link Postgres CLI
 brew link --force libpq
@@ -79,27 +50,26 @@ $(brew --prefix)/opt/fzf/install
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
 # source nvm stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-nvm install 12
 nvm install 14
 nvm install 16
 nvm install 18
-nvm use 16
+nvm alias default 18
 
 echo 'Install php environment'
 echo '---------------------------'
-sh $HOME/.dotfiles/install/php-env.sh
+sh $(chezmoi source-path)/install/php-env.sh
 
 echo 'Set macOS preferences'
 echo '---------------------------'
 # we will run this last because this will reload the shell
-source $HOME/.dotfiles/macos/set-defaults.sh
+source $(chezmoi source-path)/macos/set-defaults.sh
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
@@ -109,3 +79,5 @@ echo '1. Install patched solarized theme included in ~/.dotfiles/misc/iTerm Prof
 echo '2. Allow sudo permittance with fingerprint. Futher instructions in ~/.dotfiles/misc/fingerprint.sh'
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
+
+{{ end -}}

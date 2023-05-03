@@ -6,14 +6,14 @@ alias flush-redis="redis-cli FLUSHALL"
 
 # Oh my zsh config helpers
 # ---------------
-alias cddotfiles="cd ~/.dotfiles"
+alias cddotfiles="cd $(chezmoi source-path)"
 alias reloadcli="source $HOME/.zshrc"
 
 # Openers
 # ---------------
 alias zshrc="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
-alias dotfiles="code ~/.dotfiles"
+alias dotfiles="code $(chezmoi source-path)"
 alias hostfile="sudo code /etc/hosts"
 alias sshconfig="code ~/.ssh/config"
 

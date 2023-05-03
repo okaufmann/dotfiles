@@ -69,4 +69,4 @@ nmap ,ev :tabedit $MYVIMRC<cr>
 nmap ,<space> :nohlsearch<cr>
 
 
-source ~/.vim/.vimrc
+[ -f ~/.vim/.vimrc ] && source ~/.vim/.vimrc

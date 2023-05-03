@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$(chezmoi source-path)
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
@@ -162,18 +162,17 @@ bindkey -s "^[Oo" "/"
 # Load the shell dotfiles, and then some:
 # * ~/.extra can be used for other settings you don’t want to commit.
 # * ~/.dotfiles-custom can be used for other settings you don’t want to commit.
-for file in ~/.dotfiles/shell/.{exports,aliases,functions}; do
+for file in $(chezmoi source-path)/shell/.{exports,aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
-for file in ~/.dotfiles-custom/shell/.{exports,aliases,functions,zshrc}; do
+for file in $(chezmoi source-path)/shell/.{exports,aliases,functions,zshrc}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # if kubectl is available, add completion
 which kubectl &>/dev/null && source <(kubectl completion zsh)

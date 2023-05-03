@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 tap 'homebrew/cask-versions'
 tap "homebrew/bundle"
 tap 'nicoverbruggen/homebrew-cask'
+tap '1password/tap'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -43,6 +44,7 @@ brew 'gifsicle'
 
 # PHP Dependencies
 brew 'php'
+brew 'php@8.1'
 brew 'php@8.0'
 brew 'php@7.4'
 brew 'composer'
@@ -82,6 +84,7 @@ cask 'zoom'
 cask 'helo'
 cask 'telegram-desktop'
 cask 'tinkerwell'
+cask '1password-cli'
 
 # Quicklook
 cask "syntax-highlight"
