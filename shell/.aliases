@@ -42,10 +42,17 @@ alias php8.1="/opt/homebrew/opt/php@8.1/bin/php"
 alias php8.0="/opt/homebrew/opt/php@8.0/bin/php"
 alias php7.4="/opt/homebrew/opt/php@7.4/bin/php"
 
+alias composer8.2="php8.2 $(which composer)"
 alias composer8.1="php8.1 $(which composer)"
 alias composer8.0="php8.0 $(which composer)"
 alias composer7.4="php7.4 $(which composer)"
 
+alias pecl8.2="/opt/homebrew/opt/php@8.2/bin/pecl"
+alias pecl8.1="/opt/homebrew/opt/php@8.1/bin/pecl"
+alias pecl8.0="/opt/homebrew/opt/php@8.0/bin/pecl"
+alias pecl7.4="/opt/homebrew/opt/php@7.4/bin/pecl"
+
+alias a82="php8.2 artisan $@"
 alias a81="php8.1 artisan $@"
 alias a80="php8.0 artisan $@"
 alias a74="php7.4 artisan $@"

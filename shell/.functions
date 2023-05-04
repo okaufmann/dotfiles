@@ -325,10 +325,14 @@ function backupLocalDbs() {
     done
 }
 
-
 function phpini() {
-    iniPath=$(php -i | grep /.+/php.ini -oE)
-    code $iniPath
+    if [ -z "$1" ]; then
+        iniPath=$(php -i | grep /.+/php.ini -oE)
+        code $iniPath
+    else
+        iniPath=$(eval "php$1" -i | grep /.+/php.ini -oE)
+        code $iniPath
+    fi
 }
 
 function watchlog() {
