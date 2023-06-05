@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ $1 == 00000000000* ]]; then
-  source ~/.dotfiles/shell/.functions
+  source $(chezmoi source-path)/shell/.functions
 
   email-guess
 fi
