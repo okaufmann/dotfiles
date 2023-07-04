@@ -481,11 +481,40 @@ function e() {
     fi
 }
 
-function createUserWithPolicy() {
+function checkAwsProfile() {
+    # check if the given parameter (a certain profile) is set in the file ~/.aws/credentials if not echo an example and exit with 1
+    local profile=$1
+    local file=~/.aws/credentials
+    local example=$(\cat << EOF
+[$profile]
+aws_access_key_id = <your access key>
+aws_secret_access_key = <your secret key>
+EOF
+)
+
+    if ! grep -q "\[$profile\]" $file; then
+        # echo the following lines in red and reset afterwards
+        tput setaf 1
+        echo "AWS Profile $profile not found in $file"
+        echo "Make sure you have a profile with the name $profile and the correct permissions in $file"
+        echo ""
+        echo "Example:"
+        echo "$example"
+        tput sgr0
+        return 1
+    fi
+
+    return 0
+}
+
+function createS3UserWithPolicy() {
     local username=$1
     local bucket=$2
     local profile=$3
     local argsIam=(--profile $3 --endpoint-url=https://iam.wasabisys.com)
+
+    checkAwsProfile $profile || return 1
+
 
     # use backspace to ensure alias of cat is not used!
     local policy=$(\cat << EOF
@@ -541,6 +570,8 @@ function setupS3Bucket() {
     local region="${3:-$defaultRegion}"
     local args=(--profile $profile --endpoint-url="https://s3.${region}.wasabisys.com")
 
+    checkAwsProfile $profile || return 1
+
     echo
     echo "Creating the following resources in region $region using profile $profile:"
     echo "- bucket $name"
@@ -557,7 +588,7 @@ function setupS3Bucket() {
     aws s3api create-bucket $args \
         --bucket $name
 
-    createUserWithPolicy $name $name $profile
+    createS3UserWithPolicy $name $name $profile
 
     echo
     echo "Endpoint for bucket $name is https://s3.${region}.wasabisys.com"
@@ -570,6 +601,8 @@ function deleteS3User() {
     local name=$1
     local profile=$2
     local argsIam=(--profile $profile --endpoint-url=https://iam.wasabisys.com)
+
+    checkAwsProfile $profile || return 1
 
     echo "Detaching all policies from user $name"
     aws iam list-attached-user-policies $argsIam \
@@ -606,6 +639,8 @@ function destroyS3Resources() {
     local defaultRegion="eu-central-2"
     local region="${3:-$defaultRegion}"
     local args=(--profile $profile --endpoint-url="https://s3.${region}.wasabisys.com")
+
+    checkAwsProfile $profile || return 1
 
     echo
     echo "Deleting the following resources in region $region with profile $profile:"
