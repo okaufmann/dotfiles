@@ -1,7 +1,10 @@
+# DEBUG
+# set -x
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ensure chezmoi can be used
-export PATH="/Users/okaufmann/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Path to your dotfiles.
 export DOTFILES=$(chezmoi source-path)
@@ -10,7 +13,7 @@ export DOTFILES=$(chezmoi source-path)
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
 # Setup xdebug
-export XDEBUG_CONFIG="idekey=VSCODE"
+export XDEBUG_CONFIG="idekey=PHPSTORM"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -164,7 +167,7 @@ bindkey -s "^[Oo" "/"
 # Load the shell dotfiles, and then some:
 # * ~/.extra can be used for other settings you don’t want to commit.
 # * ~/.dotfiles-custom can be used for other settings you don’t want to commit.
-for file in $(chezmoi source-path)/shell/.{exports,aliases,functions}; do
+for file in $DOTFILES/shell/.{exports,aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
@@ -178,3 +181,4 @@ unset file
 
 # if kubectl is available, add completion
 which kubectl &>/dev/null && source <(kubectl completion zsh)
+

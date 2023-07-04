@@ -72,7 +72,7 @@ alias migrate="php artisan migrate"
 alias rollback="php artisan migrate:rollback --step=1"
 alias lpw="php artisan tinker --execute=\"echo Hash::make('$1')\" | pbcopy"
 alias vendorinit="rm -Rf vendor && composer install"
-
+alias pint="vendor/bin/pint $@"
 
 # SSH
 # ---------------
