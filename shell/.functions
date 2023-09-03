@@ -2,8 +2,10 @@
 
 function continue_prompt {
     local yn
+    # prepare a default message or take the first argument
+    local message=${1:-"Do you want to continue? (y/n) "}
     while true; do
-        echo "Do you want to continue? (y/n) "
+        echo $message
         read yn
         case $yn in
             [Yy]* ) return 0;;
@@ -504,6 +506,27 @@ EOF
         return 1
     fi
 
+    # make shure that in the file ~/.aws/config the region is us-east-1. Otherwise the ACL requests wont work
+    local file=~/.aws/config
+    local example=$(\cat << EOF
+[profile $profile]
+region = us-east-1
+EOF
+)
+
+    if ! grep -q "\[profile $profile\]" $file; then
+        # echo the following lines in red and reset afterwards
+        tput setaf 1
+        echo "AWS Profile $profile not found in $file"
+        echo "Make sure you have a profile with the name $profile and the correct permissions in $file"
+        echo ""
+        echo "Example:"
+        echo "$example"
+        tput sgr0
+        return 1
+    fi
+
+
     return 0
 }
 
@@ -667,4 +690,33 @@ function destroyS3Resources() {
 
 function d() {
     command ./d "$@"
+}
+
+function usepint() {
+
+    # ensure there are no working changes
+    if ! git diff-index --quiet HEAD --; then
+        tput setaf 1
+        echo "There are working changes. Please commit or stash them first"
+        tput sgr0
+        return 1
+    fi
+
+    echo "Replacing php-cs-fixer with pint (can take a minute or two)..."
+    git apply $DOTFILESDIR/misc/pint.patch
+    composer remove --dev --quiet friendsofphp/php-cs-fixer
+    composer require --dev --quiet laravel/pint
+
+    # ask the user if he wants to commit the changes now
+    git add .
+    git status -s
+
+    if continue_prompt "Do you want to commit these changes? (y/n)"; then
+        git add .
+        git status -s
+        git commit -m "Use pint instead of php-cs-fixer"
+    fi
+
+}
+
 }

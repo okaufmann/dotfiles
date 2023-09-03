@@ -67,6 +67,3 @@ augroup END
 "make it easy to edit the vimrc file"
 nmap ,ev :tabedit $MYVIMRC<cr>
 nmap ,<space> :nohlsearch<cr>
-
-
-[ -f ~/.vim/.vimrc ] && source ~/.vim/.vimrc

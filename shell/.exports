@@ -4,7 +4,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Path to dotfiles
-export DOTFILESDIR="$HOME/.dotfiles"
+export DOTFILESDIR="$(chezmoi source-path)"
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -115,3 +115,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+command -v flux >/dev/null && . <(flux completion zsh)
+source <(velero completion zsh)
