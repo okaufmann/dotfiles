@@ -28,8 +28,6 @@ echo 'Setup git configs'
 echo '------------'
 git config --global core.excludesfile "$(chezmoi source-path)/config/.global-gitignore"
 git config --global include.path "$(chezmoi source-path)/config/.gitconfig"
-# Register git hooks
-git config --global core.hooksPath $(chezmoi source-path)/git-hooks
 
 echo 'Install brew packages'
 echo '------------'
@@ -46,6 +44,10 @@ brew link --force libpq
 echo 'Finalize fzf install'
 echo '------------'
 $(brew --prefix)/opt/fzf/install
+
+echo 'Initiate pre-commit'
+git config --global init.templateDir $(chezmoi source-path)/git-template
+pre-commit init-templatedir $(chezmoi source-path)/git-template
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
