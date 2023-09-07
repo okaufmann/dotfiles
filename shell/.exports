@@ -119,5 +119,13 @@ esac
 command -v flux >/dev/null && . <(flux completion zsh)
 source <(velero completion zsh)
 
+# if kubectl is available, add completion
+which kubectl &>/dev/null && source <(kubectl completion zsh)
+
 # this is needed as the 1Password ssh agent is readonly
 export TELEPORT_USE_LOCAL_SSH_AGENT=false
+
+export BAT_THEME="Coldark-Dark"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh

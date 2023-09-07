@@ -175,10 +175,3 @@ for file in ~/.dotfiles-custom/shell/.{exports,aliases,functions,zshrc}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
-# if kubectl is available, add completion
-which kubectl &>/dev/null && source <(kubectl completion zsh)
-

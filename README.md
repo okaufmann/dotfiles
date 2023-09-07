@@ -11,3 +11,17 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --ssh okaufmann
 Feel free to create an issue on this repo if you have any questions about them.
 
 ![screenshot](https://okaufmann.github.io/dotfiles/screenshot.png)
+
+## Update
+
+    chezmoi status
+    chezmoi diff
+    chezmoi update
+
+## Edit a file
+
+    chezmoi edit ~/.ssh/config
+
+## Problems
+
+chezmoi doctor
