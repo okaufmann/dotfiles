@@ -84,7 +84,7 @@ alias publickey="cat ~/.ssh/id_rsa.pub"
 # Tool replacements & helpers
 # ---------------
 alias man=tldr
-alias cat="bat -A $@"
+alias cat="bat $@"
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
@@ -151,5 +151,3 @@ alias scrape="scrapeUrl"
 
 # Restart touch bar
 alias touchbar="killall ControlStrip"
-
-

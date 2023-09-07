@@ -206,11 +206,11 @@ index 576c8f9cda9514ce9f07db3d8122221827964c18..1b9e181094fbd8d6bf4a72a650e8fe1f
 @@ -1,4 +1,4 @@
 -name: fix-code-style
 +name: Fix PHP code style issues
- 
+
  on:
    workflow_dispatch:
 @@ -14,4 +14,4 @@ permissions:
- 
+
  jobs:
    call-php-code-styling-workflow:
 -    uses: teamnovu/.github/.github/workflows/php-cs-fixer.yml@main
