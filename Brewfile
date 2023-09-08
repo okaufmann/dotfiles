@@ -35,6 +35,10 @@ brew 'mas' # Mac App Store manager
 brew 'libpq' # PostgresQL client
 brew 'jq' # JSON parser
 brew 'pre-commit' # Git hooks
+brew 'kubectx'
+brew 'kubernetes-cli'
+brew 'sops'
+brew 'age'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
