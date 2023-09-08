@@ -581,9 +581,12 @@ EOF
         --output json)
     echo
     echo -n "Access Key ID: "
-    echo $accessKeyResult | jq -r .AccessKey.AccessKeyId
+    ACCESS_KEY=$(echo $accessKeyResult | jq -r .AccessKey.AccessKeyId)
+    echo $ACCESS_KEY
+
     echo -n "Access Secret: "
-    echo $accessKeyResult | jq -r .AccessKey.SecretAccessKey
+    ACCESS_SECRET=$(echo $accessKeyResult | jq -r .AccessKey.SecretAccessKey)
+    echo $ACCESS_SECRET
 }
 
 function setupS3Bucket() {
@@ -618,6 +621,16 @@ function setupS3Bucket() {
     echo "Open in Wasabi Console: https://console.wasabisys.com/#/file_manager/${name}?region=${region}"
     echo
     echo "Bucket $name created"
+    echo
+    echo "To use it in your Laravel Project, update the following environment variables in your .env file:"
+    echo
+    echo "S3_ASSETS_ACCESS_KEY_ID=$ACCESS_KEY"
+    echo "S3_ASSETS_SECRET_ACCESS_KEY=$ACCESS_SECRET"
+    echo "S3_ASSETS_DEFAULT_REGION=$region"
+    echo "S3_ASSETS_BUCKET=$name"
+    echo "S3_ASSETS_ENDPOINT=https://s3.${region}.wasabisys.com"
+    unset $ACCESS_KEY
+    unset $ACCESS_SECRET
 }
 
 function deleteS3User() {
