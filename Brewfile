@@ -34,6 +34,8 @@ brew 'svn' # Needed to install fonts
 brew 'mas' # Mac App Store manager
 brew 'libpq' # PostgresQL client
 brew 'jq' # JSON parser
+brew 'git'
+brew 'git-delta' # Git diff viewer
 brew 'pre-commit' # Git hooks
 brew 'kubectx'
 brew 'kubernetes-cli'

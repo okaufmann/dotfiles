@@ -2,6 +2,7 @@
     autocrlf = false
     eol = native
     editor = code --wait
+    pager = delta
 
 [user]
 	signingKey = ~/.ssh/id_ed25519.pub
@@ -32,6 +33,25 @@
 
 [fetch]
     prune = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+    features = crazy-cats
+
+[delta "crazy-cats"]
+    syntax-theme = Coldark-Dark
+    dark = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [alias]
     # inspired by https://laravel-news.com/bash-aliases
