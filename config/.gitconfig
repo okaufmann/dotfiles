@@ -78,3 +78,4 @@
     cara = "!git commit --amend --reset-author"
     deploy = "!f() { git commit --allow-empty -m \"deploy\" && git push; }; f"
     uncommit = reset --soft HEAD~1
+    fetchb =  "!f() { git fetch ${2:-origin} ${1:-main}:${1:-main}; }; f"
