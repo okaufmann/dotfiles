@@ -226,11 +226,57 @@ function scanNetwork() {
     nmap -sn $network -oG - | awk '/Up$/{print $2 " " $3}'
 }
 
+# Format byte sizes into human-readable strings
+function format_size() {
+    local size_kb=$1
+    if [[ $size_kb -lt 1024 ]]; then
+        printf "%.2f KB" $size_kb
+    elif [[ $size_kb -lt 1048576 ]]; then
+        printf "%.2f MB" $(bc -l <<< "$size_kb/1024")
+    else
+        printf "%.2f GB" $(bc -l <<< "$size_kb/1048576")
+    fi
+}
+
 function removeVendors() {
-    local projectsFolder='~/Code';
-    local folder="${1:-$projectsFolder}";
-    cd $folder && find . -name "node_modules" -exec rm -rf '{}' +
-    cd $folder && find . -name "vendor" -exec rm -rf '{}' +
+    local projectsFolder="$HOME/Code";
+    local dryrun=0
+
+    # Check for --dry-run argument
+    for arg in "$@"; do
+        case $arg in
+            --dry-run)
+                dryrun=1
+                shift
+                ;;
+        esac
+    done
+
+    echo "Deleting all vendors and node_modules in $projectsFolder"
+
+    # Initialize a variable to keep track of total size deleted in kilobytes
+    total_deleted_kb=0
+
+    # Function to add sizes
+    add_sizes() {
+        local current=${1:-0}
+        local new=${2:-0}
+        echo $(($current + $new))
+    }
+
+    # Process each directory
+    while IFS= read -r dir; do
+        size_kb=$(du -sk "$dir" | cut -f1)
+        echo "($(format_size $size_kb)) Deleting: $dir"
+        total_deleted_kb=$(add_sizes $total_deleted_kb $size_kb)
+        # Delete only if not in dry run mode
+        if [[ $dryrun -eq 0 ]]; then
+            rm -rf "$dir"
+        fi
+    done < <(find "$projectsFolder" -maxdepth 3 -mindepth 3 -type d \( -name "vendor" -o -name "node_modules" \))
+
+    # Print total size deleted
+    echo "Total deleted size: $(format_size $total_deleted_kb)"
 }
 
 function opendb () {
