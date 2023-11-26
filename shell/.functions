@@ -280,7 +280,7 @@ function removeVendors() {
 }
 
 function opendb () {
-   [ ! -f .env ] && { echo "No .env file found."; exit 1; }
+   [ ! -f .env ] && { echo -e "\033[0;31mNo .env file found.\033[0m"; return 1; }
 
    DB_CONNECTION=$(grep DB_CONNECTION .env | grep -v -e '^\s*#' | cut -d '=' -f 2-)
    DB_HOST=$(grep DB_HOST .env | grep -v -e '^\s*#' | cut -d '=' -f 2-)
@@ -308,7 +308,7 @@ function db {
 }
 
 function createDb() {
-    [ ! -f .env ] && { echo "No .env file found."; exit 1; }
+    [ ! -f .env ] && { echo -e "\033[0;31mNo .env file found.\033[0m"; return 1; }
 
     DB_CONNECTION=$(grep DB_CONNECTION .env | grep -v -e '^\s*#' | cut -d '=' -f 2-)
 
@@ -328,7 +328,7 @@ function createDb() {
 }
 
 function dropDb() {
-    [ ! -f .env ] && { echo "No .env file found."; exit 1; }
+    [ ! -f .env ] && { echo "\033[0;31mNo .env file found.\033[0m"; return 1; }
 
     DB_CONNECTION=$(grep DB_CONNECTION .env | grep -v -e '^\s*#' | cut -d '=' -f 2-)
 
