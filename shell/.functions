@@ -61,9 +61,41 @@ function scanhost() {
 }
 
 function copysshkey() {
+    local host=$1
     local port=${2:-22}
-    ssh-copy-id -i ~/.ssh/id_rsa $1 -p $port
+    local filename=${3:-id_ed25519}
+    ssh-copy-id -i "~/.ssh/$filename" $host -p $port
 }
+
+
+function sshkey() {
+    local keysPath="$HOME/.ssh"
+    local fileName="${1}"
+    local curve="${4:-ed25519}"
+    local defaultEmail="okaufmann91@gmail.com"
+    local defaultName="Oliver Kaufmann"
+    local name="${3:-$defaultName}"
+    local email="${2:-$defaultEmail}"
+
+    # ask for filename if not provided
+    if [ -z "$fileName" ]; then
+        echo "Please provide a filename for the key"
+        read fileName
+    fi
+
+    # ask for email if not provided
+    if [ "$email" = "$defaultEmail" ]; then
+        echo "Please provide an email address for the key"
+        read email
+    fi
+
+    echo "Generating ssh key with $curve under $keysPath/$fileName"
+
+    # generate a ssh key with the curve ed25519 (eliptical curve cryptography)
+    # with a key derivation function (kdf) of 420 iterations
+    ssh-keygen -t $curve -a 420 -C "$name <$email>" -f "$keysPath/$fileName"
+}
+
 
 function weather() {
     city="$1"
