@@ -53,7 +53,7 @@ Feel free to create an issue on this repo if you have any questions about them.
     chezmoi diff
     chezmoi update
 
-## Edit a file
+## Edit a file (also encrypted ones)
 
     chezmoi edit ~/.ssh/config
 

@@ -11,11 +11,11 @@ alias reloadcli="source $HOME/.zshrc"
 
 # Openers
 # ---------------
-alias zshrc="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+alias zshrc="chezmoi edit ~/.zshrc"
+alias ohmyzsh="chezmoi edit ~/.oh-my-zsh"
 alias dotfiles="code $(chezmoi source-path)"
 alias hostfile="sudo code /etc/hosts"
-alias sshconfig="code ~/.ssh/config"
+alias sshconfig="chezmoi edit ~/.ssh/config"
 
 # PHP
 # ---------------
@@ -76,10 +76,9 @@ alias pint="vendor/bin/pint $@"
 
 # SSH
 # ---------------
-alias sshconfig="code ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
 alias copykeyrsa='command cat ~/.ssh/id_rsa.pub | pbcopy'
-alias publickey="cat ~/.ssh/id_rsa.pub"
+alias publickey="cat ~/.ssh/id_ed25519.pub"
 
 # Tool replacements & helpers
 # ---------------
