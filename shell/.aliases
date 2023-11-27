@@ -86,6 +86,7 @@ alias man=tldr
 alias cat="bat $@"
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+
 # add support for ctrl+o to open selected file in VS Code
 alias grep="grep --color=auto"
 alias top="sudo htop"
@@ -98,10 +99,12 @@ alias jest="./node_modules/.bin/jest"
 alias l="ls -laF"
 alias ls="exa -lah $@"
 alias taillog="watchlog"
+alias kubeconfig='code ~/.kube/config'
+# allow to use watch with aliases
 alias watch='watch '
 alias k='kubectl'
-alias kubeconfig='code ~/.kube/config'
 alias kr='kraken'
+alias 1p='op'
 
 # Git
 # ---------------

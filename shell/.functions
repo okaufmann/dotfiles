@@ -77,6 +77,12 @@ function sshkey() {
     local name="${3:-$defaultName}"
     local email="${2:-$defaultEmail}"
 
+    # if file name exists abort
+    if [ -f "$keysPath/$fileName" ]; then
+        echo "File $keysPath/$fileName already exists"
+        return 1
+    fi
+
     # ask for filename if not provided
     if [ -z "$fileName" ]; then
         echo "Please provide a filename for the key"
@@ -94,6 +100,34 @@ function sshkey() {
     # generate a ssh key with the curve ed25519 (eliptical curve cryptography)
     # with a key derivation function (kdf) of 420 iterations
     ssh-keygen -t $curve -a 420 -C "$name <$email>" -f "$keysPath/$fileName"
+
+    # NOT YET SUPPORTED!!
+    # # ask if the key should be added to a 1Password Vault
+    # echo
+    # if continue_prompt "Do you want to add the key to 1Password? (y/n)"; then
+    #     # ask for a item name
+    #     echo
+    #     echo "Please provide a name for the item"
+    #     read itemName
+
+    #     # show available vault and ask to which the key should be added
+    #     echo
+    #     echo "Please select a vault to add the key to"
+    #     op vault list
+
+    #     # ask for the vault
+    #     echo
+    #     echo "Please provide the name of the vault"
+    #     read vaultName
+
+    #     # add the key to 1Password
+    #     op item create \
+    #         --category ssh \
+    #         --title "$itemName" \
+    #         --vault "$vaultName" \
+    #         --tags ssh-key \
+    #         --fields "public=$(cat $keysPath/$fileName.pub)" "private=$(cat $keysPath/$fileName)"
+    # fi
 }
 
 
