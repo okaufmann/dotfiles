@@ -16,6 +16,8 @@ alias ohmyzsh="chezmoi edit ~/.oh-my-zsh"
 alias dotfiles="code $(chezmoi source-path)"
 alias hostfile="sudo code /etc/hosts"
 alias sshconfig="chezmoi edit ~/.ssh/config"
+alias sshconfig-private="chezmoi edit ~/.ssh/conf.d/private"
+alias sshconfig-company="chezmoi edit ~/.ssh/conf.d/company"
 
 # PHP
 # ---------------
