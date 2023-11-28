@@ -1,0 +1,31 @@
+Include conf.d/private
+Include conf.d/company
+
+# Global Settings
+Host *
+     # Use 1Password as SSH Agent
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+    # Use only the identity keys configured in the ssh config, ignoring any other keys ssh-agent may provide.
+    IdentitiesOnly yes
+
+    # Disable the use of the obsolete "roaming" feature to prevent potential security vulnerabilities.
+    UseRoaming no
+
+    # Disable the use of the obsolete and insecure v1 SSH protocol.
+    ForwardAgent no
+
+    # Send local environment variables related to language and localization settings to the remote host.
+    SendEnv LANG LC_*
+
+    # Enable data compression for the SSH session, potentially improving speed over slow connections.
+    Compression yes
+
+    # Send keepalive messages every 60 seconds to prevent disconnection.
+    ServerAliveInterval 60
+
+    # Disconnect if no response is received after 3 keepalive messages.
+    ServerAliveCountMax 3
+
+    # Use TCP keepalive messages.
+    TCPKeepAlive yes
