@@ -3,8 +3,6 @@
 # Load Homebrew (M1)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Path to dotfiles
-export DOTFILESDIR="$(chezmoi source-path)"
 
 # Make vim the default editor
 export EDITOR="vim"

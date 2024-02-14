@@ -465,7 +465,7 @@ function watchdir() {
 
 function gitmovie() {
     echo "generating avatars from Gravatar..."
-    perl "$DOTFILESDIR/misc/gen-git-avatars"
+    perl "$DOTFILES/misc/gen-git-avatars"
     echo "starting gource..."
     gource --user-image-dir .git/avatar/ --seconds-per-day 0.1 --auto-skip-seconds 1 -1280x720 -o gource.ppm
     echo "convert into mp4..."
@@ -803,7 +803,7 @@ function usepint() {
     fi
 
     echo "Replacing php-cs-fixer with pint (can take a minute or two)..."
-    git apply $DOTFILESDIR/misc/pint.patch
+    git apply $DOTFILES/misc/pint.patch
     composer remove --dev --quiet friendsofphp/php-cs-fixer
     composer require --dev --quiet laravel/pint
 
