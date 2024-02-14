@@ -15,18 +15,18 @@
     path = ~/.git-config/.gitconfig-work
 
 [gpg]
-	program = gpg
-	format = ssh
+    program = gpg
+    format = ssh
 
 [gpg "ssh"]
-	allowedSignersFile = ~/.ssh/allowed_signers
+    allowedSignersFile = ~/.ssh/allowed_signers
 
 [commit]
-	gpgsign = true
+    gpgsign = true
 
 [tag]
-	forceSignAnnotated = true
-	gpgsign = true
+    forceSignAnnotated = true
+    gpgsign = true
 
 [push]
     default = simple
@@ -60,6 +60,19 @@
 [diff]
     colorMoved = default
 
+[diff "sopsdiffer"]
+	textconv = sops -d --config /dev/null
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+# REuse REcorded REsolution helps to resolve conflicts by reusing recorded resolutions
+[rerere]
+    enabled = true
+
 [alias]
     # inspired by https://laravel-news.com/bash-aliases
     st = "!f(){ git status -bs; printf \"\nIgnored files:\n\"; git ls-files -v | grep "^h " | cut -c 3-; };f"
@@ -75,6 +88,7 @@
     dc = diff --cached
     sg = diff --staged --name-only
     b = branch
+    bb = !better-branch.sh
     fa = fetch --all
     lg = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short
     ll = log --pretty=format:\"%Cgreen%h%Creset %Cblue%ad%Creset %s%C(yellow)%d%Creset %Cblue[%an]%Creset\" --graph --date=short -10
