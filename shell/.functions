@@ -818,3 +818,36 @@ function usepint() {
     fi
 
 }
+
+function kshark() {
+    namespace=${1}
+
+    if [ -z "$namespace" ]; then
+        echo "Please provide a namespace"
+        return 1
+    fi
+    export KUBESHARK_DISABLE_VERSION_CHECK=1
+    kubectl create namespace kubeshark --dry-run=client -o yaml | kubectl label --local -f - pod-security.kubernetes.io/enforce=privileged -o yaml | kubectl apply -f -
+    kubeshark tap -n $namespace --telemetry-enabled=false \
+            --tls=true \
+            --release-namespace=kubeshark \
+            --serviceMesh=false \
+            --storageLimit=2Gi \
+            --set tap.noKernelModule=true \
+            --set tap.ipv6=false
+}
+
+function kshark-clean() {
+    kubeshark clean --release-namespace=kubeshark
+}
+
+function install-krew-packages() {
+    kubectl krew install ctx
+    kubectl krew install ns
+
+    # add kubectl-netshoot plugin index
+    kubectl krew index add netshoot https://github.com/nilic/kubectl-netshoot.git
+
+    # install netshoot plugin
+    kubectl krew install netshoot/netshoot
+}

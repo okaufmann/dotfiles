@@ -106,6 +106,7 @@ load-nvmrc() {
   fi
 }
 
+# ensure `nvm use` is run when changing directories
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
@@ -117,14 +118,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
-
-# if kubectl is available, add completion
+# if kubectl is available, source completions
 command -v flux >/dev/null && . <(flux completion zsh)
 which velero &>/dev/null && source <(velero completion zsh)
 which kubectl &>/dev/null && source <(kubectl completion zsh)
 which argocd &>/dev/null && source <(argocd completion zsh)
 export KUBE_EDITOR='code --wait'
+export TALOS_EDITOR='code --wait'
 
 # this is needed as the 1Password ssh agent is readonly
 export TELEPORT_USE_LOCAL_SSH_AGENT=false
