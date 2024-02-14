@@ -4,8 +4,15 @@
     editor = code --wait
     pager = delta
 
-[user]
-	signingKey = ~/.ssh/id_ed25519.pub
+
+[include]
+    path = ~/.git-config/.gitconfig-private
+[includeIf "gitdir:~/Code/novu/"]
+    path = ~/.git-config/.gitconfig-work
+[includeIf "gitdir:~/Code/nuxt-novu/"]
+    path = ~/.git-config/.gitconfig-work
+[includeIf "gitdir:~/Code/jkweb/"]
+    path = ~/.git-config/.gitconfig-work
 
 [gpg]
 	program = gpg

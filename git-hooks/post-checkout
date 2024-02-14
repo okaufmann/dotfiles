@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-if [[ $1 == 00000000000* ]]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-
-  source $(chezmoi source-path)/shell/.functions
-
-  email-guess
-fi

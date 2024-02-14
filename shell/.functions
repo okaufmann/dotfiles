@@ -517,31 +517,6 @@ function updateAppStore() {
     sudo softwareupdate -i -a
 }
 
-# Guess email for git user
-function email-guess() {
-    GREEN="\033[32m"
-    NOCOLOR="\033[0m"
-
-    remote=`git remote -v | awk '/\(push\)$/ {print $2}'`
-    echo -e "${GREEN}Guessing email based on git repo $remote${NOCOLOR}"
-    email=okaufmann91@gmail.com # default
-
-    if [[ $remote == *github.com:teamnovu* ]]; then
-        email=oliver.kaufmann@novu.ch
-    fi
-
-    if [[ $remote == *projects.lernetz.ch* ]]; then
-        email=oliver.kaufmann@novu.ch
-    fi
-
-    if [[ $remote == *gitlab.com:JKwebGmbH* ]]; then
-        email=oliver.kaufmann@novu.ch
-    fi
-
-    echo -e "${GREEN}Configuring user.email as $email${NOCOLOR}"
-    git config user.email $email
-}
-
 function shush() {
     "$@" >& /dev/null
 }
