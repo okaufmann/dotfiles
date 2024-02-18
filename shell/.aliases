@@ -12,7 +12,6 @@ alias reloadcli="source $HOME/.zshrc"
 # Openers
 # ---------------
 alias zshrc="chezmoi edit ~/.zshrc"
-alias ohmyzsh="chezmoi edit ~/.oh-my-zsh"
 alias dotfiles="code $(chezmoi source-path)"
 alias hostfile="sudo code /etc/hosts"
 alias sshconfig="chezmoi edit ~/.ssh/config"
@@ -21,9 +20,6 @@ alias sshconfig-company="chezmoi edit ~/.ssh/conf.d/company"
 
 # PHP
 # ---------------
-alias phpunit="vendor/bin/phpunit"
-alias phpunitw="phpunit-watcher watch"
-alias pw="phpunit-watcher watch"
 alias p="phpunit $@"
 alias pf="phpunit --filter $@"
 alias p="phpunit $@"
@@ -37,7 +33,6 @@ alias cr="composer require"
 alias crs="composer require --no-scripts"
 alias ci="composer install"
 alias cda="composer dump-autoload -o"
-alias yii="php yii $@"
 
 alias php8.3="/opt/homebrew/opt/php@8.3/bin/php"
 alias php8.2="/opt/homebrew/opt/php@8.2/bin/php"
@@ -45,31 +40,28 @@ alias php8.1="/opt/homebrew/opt/php@8.1/bin/php"
 alias php8.0="/opt/homebrew/opt/php@8.0/bin/php"
 alias php7.4="/opt/homebrew/opt/php@7.4/bin/php"
 
+alias composer8.3="php8.3 $(which composer)"
 alias composer8.2="php8.2 $(which composer)"
 alias composer8.1="php8.1 $(which composer)"
 alias composer8.0="php8.0 $(which composer)"
 alias composer7.4="php7.4 $(which composer)"
 
+alias pecl8.3="/opt/homebrew/opt/php@8.3/bin/pecl"
 alias pecl8.2="/opt/homebrew/opt/php@8.2/bin/pecl"
 alias pecl8.1="/opt/homebrew/opt/php@8.1/bin/pecl"
 alias pecl8.0="/opt/homebrew/opt/php@8.0/bin/pecl"
 alias pecl7.4="/opt/homebrew/opt/php@7.4/bin/pecl"
 
+alias a83="php8.3 artisan $@"
 alias a82="php8.2 artisan $@"
 alias a81="php8.1 artisan $@"
 alias a80="php8.0 artisan $@"
 alias a74="php7.4 artisan $@"
 
-
 # Laravel
 # ---------------
 alias fresh='php artisan migrate:fresh --seed'
 alias a="artisan" # artisan is provided by zsh plugin
-alias v="vapor"
-alias deploy='envoy run deploy'
-alias deploy-code='envoy run deploy-code'
-alias ngrok="$HOME/.composer/global/laravel/valet/vendor/laravel/valet/bin/ngrok"
-alias please="php please $@"
 alias mm="php artisan make:migration"
 alias migrate="php artisan migrate"
 alias rollback="php artisan migrate:rollback --step=1"
@@ -80,7 +72,6 @@ alias pint="vendor/bin/pint $@"
 # SSH
 # ---------------
 alias copykey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
-alias copykeyrsa='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias publickey="cat ~/.ssh/id_ed25519.pub"
 
 # Tool replacements & helpers
@@ -90,19 +81,15 @@ alias cat="bat $@"
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 
-# add support for ctrl+o to open selected file in VS Code
 alias grep="grep --color=auto"
 alias top="sudo htop"
-alias f="forge"
 alias dc="docker-compose"
-alias jigsaw="./vendor/bin/jigsaw $@"
-alias o="open ."
-alias jest="./node_modules/.bin/jest"
+
 # List all files colorized in long format
 alias l="ls -laF"
 alias ls="exa -lah $@"
-alias taillog="watchlog"
 alias kubeconfig='code ~/.kube/config'
+
 # allow to use watch with aliases
 alias watch='watch '
 alias k='kubectl'
@@ -116,25 +103,12 @@ alias wip="commit 'wip'"
 alias cleanbranches="git branch --merged | egrep -v \"(^\*|main|master|develop|dev)\" | xargs git branch -d"
 alias dracaris='git reset --hard;git clean -df'
 
-# Editors
-# ---------------
-# alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
-# installed via code -> CMD+P -> Shell command -> install...
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
 # MacOS
 # ---------------
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 # Flush Directory Service cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-# Lock the screen
-alias afk="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
-# Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
-alias restartaudio="sudo launchctl kickstart -kp system/com.apple.audio.coreaudiod"
 
 # Networking
 # ---------------
@@ -147,12 +121,3 @@ alias ports="lsof -nP -i4TCP | grep LISTEN"
 # ---------------
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# Image to Text converter
-alias ocr='screencapture -i ~/tmp/screenshot.png && tesseract ~/tmp/screenshot.png stdout | pbcopy && rm -f ~/tmp/screenshot.png'
-
-# Scape webpage
-alias scrape="scrapeUrl"
-
-# Restart touch bar
-alias touchbar="killall ControlStrip"
