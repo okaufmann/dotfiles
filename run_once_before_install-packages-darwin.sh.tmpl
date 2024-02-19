@@ -20,8 +20,8 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 
   echo 'Installing zsh plugins'
   echo '------------'
-  git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
-  git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
+  rm -Rf $HOME/.oh-my-zsh/custom/plugins/artisan && git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
+  rm -Rf $HOME/.oh-my-zsh/custom/plugins/zsh-z && git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
 fi
 
 echo 'Setup git configs'

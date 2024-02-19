@@ -7,12 +7,9 @@
 
 [include]
     path = ~/.git-config/.gitconfig-private
-[includeIf "gitdir:~/Code/novu/"]
+[includeIf "gitdir:~/Code/_work/"]
     path = ~/.git-config/.gitconfig-work
-[includeIf "gitdir:~/Code/nuxt-novu/"]
-    path = ~/.git-config/.gitconfig-work
-[includeIf "gitdir:~/Code/jkweb/"]
-    path = ~/.git-config/.gitconfig-work
+
 
 [gpg]
     program = gpg

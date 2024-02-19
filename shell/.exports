@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+# set -ex
+
 # Load Homebrew (M1)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# dont update all other packages when installing a new brew package
+# https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -10,31 +15,30 @@ export EDITOR="vim"
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-# Config autosuggest color
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+# Spaceship theme
+source /opt/homebrew/opt/spaceship/spaceship.zsh
 
-# setup fzf
+# zsh autosuggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# FZF
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Composer
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
-# export PATH="$PATH:$(composer config -g home)/vendor/bin"
 export COMPOSER_MEMORY_LIMIT=-1
-
-# Google SDK
-export PATH="/Users/${USER}/google-cloud-sdk/bin:$PATH"
 
 # Tools
 export PATH="/Users/${USER}/Code/tools:$PATH"
-
-# Android SDK
-export ANDROID_HOME="/Users/${USER}/Library/Android/sdk"
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
-export PATH="/Users/${USER}/Library/Android/sdk/emulator:$PATH"
 
 # Go
 export GOPATH=$HOME/Code/go-workspace
@@ -46,18 +50,7 @@ export PATH="/usr/local/sbin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 # export LC_ALL="en_US.UTF-8"
-
-# fix Setting locale failed error
-export LC_CTYPE=en_US.utf-8
-
-# node
-export PATH="/usr/local/opt/node@8/bin:$PATH"
-
-# Flutter
-export PATH="$PATH:$HOME/Code/tools/flutter/bin"
-
-# Python
-export PATH="$PATH:$HOME/Library/Python/3.10/bin"
+export LC_CTYPE=en_US.utf-8 # fix Setting locale failed error
 
 # dotnet cli tools
 export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
@@ -68,15 +61,16 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # include custom scripts
 export PATH="$PATH:$DOTFILES/shell/.scripts"
 
-# dont update all other packages when installing a new brew package
-# https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
-export HOMEBREW_NO_AUTO_UPDATE=1
+# NPM
+export  NPM_PACKAGES="${HOME}/.npm-packages" # Sudoless npm https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
+export  PATH="$NPM_PACKAGES/bin:$PATH"
+
+# yarn binaries
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # import nvm global bin folder for CLI tools
@@ -108,7 +102,7 @@ load-nvmrc() {
 
 # ensure `nvm use` is run when changing directories
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# load-nvmrc
 
 # pnpm
 export PNPM_HOME="/Users/okaufmann/Library/pnpm"
@@ -118,8 +112,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# if kubectl is available, source completions
-command -v flux >/dev/null && . <(flux completion zsh)
+which hcloud &>/dev/null && source <(hcloud completion zsh)
+which flux &>/dev/null && source <(flux completion zsh)
 which velero &>/dev/null && source <(velero completion zsh)
 which kubectl &>/dev/null && source <(kubectl completion zsh)
 which argocd &>/dev/null && source <(argocd completion zsh)
@@ -131,5 +125,4 @@ export TELEPORT_USE_LOCAL_SSH_AGENT=false
 
 export BAT_THEME="Coldark-Dark"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh

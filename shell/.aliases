@@ -87,7 +87,7 @@ alias dc="docker-compose"
 
 # List all files colorized in long format
 alias l="ls -laF"
-alias ls="exa -lah $@"
+alias ls="exa -lah --git $@"
 alias kubeconfig='code ~/.kube/config'
 
 # allow to use watch with aliases
