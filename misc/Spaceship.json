@@ -1,10 +1,6 @@
 {
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.36536297202110291,
-    "Red Component" : 1
-  },
-  "Thin Strokes" : 4,
+  "Custom Directory" : "Recycle",
+  "Set Local Environment Vars" : 2,
   "Working Directory" : "\/Users\/wesbos",
   "Prompt Before Closing 2" : 1,
   "Selected Text Color" : {
@@ -32,6 +28,7 @@
     "Blue Component" : 0.31055498123168945,
     "Red Component" : 0.09597768634557724
   },
+  "Show Mark Indicators" : false,
   "Mouse Reporting" : true,
   "Cursor Boost" : 0,
   "Ansi 4 Color" : {
@@ -66,9 +63,9 @@
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -80,9 +77,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -94,9 +91,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -108,9 +105,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -122,9 +119,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -137,9 +134,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       },
@@ -152,9 +149,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "auto-rainbow style" : 0,
             "algorithm" : 0,
-            "remove empty components" : false,
-            "auto-rainbow style" : 0
+            "remove empty components" : false
           }
         }
       }
@@ -413,20 +410,20 @@
     "Blue Component" : 0,
     "Red Component" : 1
   },
-  "Name" : "Cobalt2",
+  "Name" : "Spaceship",
   "Blinking Cursor" : false,
   "Guid" : "BD72F04F-66AD-4417-AECF-AA11B6A340F6",
-  "Ansi 8 Color" : {
-    "Green Component" : 0.33333333333333331,
-    "Blue Component" : 0.33333333333333331,
-    "Red Component" : 0.33333333333333331
-  },
+  "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Green Component" : 0.81519794464111328,
     "Blue Component" : 0.11517760157585144,
     "Red Component" : 0.23300750553607941
   },
-  "Idle Code" : 0,
+  "Ansi 8 Color" : {
+    "Green Component" : 0.33333333333333331,
+    "Blue Component" : 0.33333333333333331,
+    "Red Component" : 0.33333333333333331
+  },
   "Badge Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",
@@ -500,7 +497,11 @@
   "Use Tab Color" : true,
   "Columns" : 150,
   "Visual Bell" : true,
-  "Custom Directory" : "Recycle",
   "ASCII Ligatures" : true,
-  "Set Local Environment Vars" : 2
+  "Thin Strokes" : 4,
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.36536297202110291,
+    "Red Component" : 1
+  }
 }
