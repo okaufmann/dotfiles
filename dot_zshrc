@@ -9,6 +9,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Path to your dotfiles.
 export DOTFILES=$(chezmoi source-path)
 
+export COMPLETION_WAITING_DOTS=true
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
@@ -19,30 +21,98 @@ export XDEBUG_CONFIG="idekey=PHPSTORM"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="remy"
-ZSH_THEME="cobalt2"
+# ZSH_THEME="cobalt2"
 DEFAULT_USER="okaufmann"
 
 # CONFIG SPACESHIP
 # based on https://gist.github.com/PierreThiollent/9087a26d56e0704c263baf7e1a5f3827
-# Symbole avant les commandes
+# colors: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 # SPACESHIP_CHAR_SYMBOL="🚀 "
-# Affichage du prefixe avant le repertoire courant
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-# Icone avant le repertoire courant
-SPACESHIP_DIR_PREFIX="🗂  "
-# Icone avant la branche Git
-SPACESHIP_GIT_BRANCH_PREFIX="⚡ "
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true
-# Symbole avant la version du paquet
 SPACESHIP_PROMPT_DEFAULT_PREFIX="- "
-# Desactive l'affichage du temps d'execution du script
-SPACESHIP_EXEC_TIME_SHOW=false
-# Prefixe avant la branche git
-SPACESHIP_GIT_PREFIX="on "
-# Prefixe version de paquet
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_DIR_PREFIX="🗂  "
+SPACESHIP_DIR_COLOR="033"
+SPACESHIP_GIT_BRANCH_PREFIX="⚡ "
+SPACESHIP_GIT_PREFIX=""
+SPACESHIP_GIT_PREFIX_COLOR="123"
+SPACESHIP_GIT_STATUS_SHOW=true
+SPACESHIP_GIT_STATUS_COLOR="184"
+SPACESHIP_GIT_BRANCH_COLOR="202"
+SPACESHIP_EXEC_TIME_SHOW=true
+SPACESHIP_EXEC_TIME_ELAPSED=5
+SPACESHIP_EXEC_TIME_PRECISION=2
+SPACESHIP_EXEC_TIME_PREFIX="⌚️ "
+SPACESHIP_EXEC_TIME_COLOR="241"
 SPACESHIP_PACKAGE_PREFIX="is "
-# DEsactive git status
-SPACESHIP_GIT_STATUS_SHOW="false"
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_DOTNET_COLOR="blue"
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_COLOR=240
+
+SPACESHIP_PROMPT_ORDER=(
+#   time           # Time stamps section
+  user           # Username section
+  dir            # Current directory section
+  host           # Hostname section
+  git            # Git section (git_branch + git_status)
+  hg             # Mercurial section (hg_branch  + hg_status)
+  package        # Package version
+  node           # Node.js section
+  bun            # Bun section
+  deno           # Deno section
+  ruby           # Ruby section
+  python         # Python section
+  elm            # Elm section
+  elixir         # Elixir section
+  xcode          # Xcode section
+  swift          # Swift section
+  golang         # Go section
+  perl           # Perl section
+  php            # PHP section
+  rust           # Rust section
+  haskell        # Haskell Stack section
+  scala          # Scala section
+  kotlin         # Kotlin section
+  java           # Java section
+  lua            # Lua section
+  dart           # Dart section
+  julia          # Julia section
+  crystal        # Crystal section
+  docker         # Docker section
+  docker_compose # Docker section
+  aws            # Amazon Web Services section
+  gcloud         # Google Cloud Platform section
+  azure          # Azure section
+  venv           # virtualenv section
+  conda          # conda virtualenv section
+  dotnet         # .NET section
+  ocaml          # OCaml section
+  vlang          # V section
+  zig            # Zig section
+  purescript     # PureScript section
+  erlang         # Erlang section
+  kubectl        # Kubectl context section
+  ansible        # Ansible section
+  terraform      # Terraform workspace section
+  pulumi         # Pulumi stack section
+  ibmcloud       # IBM Cloud section
+  nix_shell      # Nix shell
+  gnu_screen     # GNU Screen section
+  exec_time      # Execution time
+  async          # Async jobs indicator
+  line_sep       # Line break
+  battery        # Battery level and status
+  jobs           # Background jobs indicator
+  exit_code      # Exit code section
+  sudo           # Sudo indicator
+  char           # Prompt character
+)
+
+SPACESHIP_RPROMPT_ORDER=(
+    time
+)
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -94,7 +164,7 @@ SPACESHIP_GIT_STATUS_SHOW="false"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-z
+    git
     artisan
 )
 

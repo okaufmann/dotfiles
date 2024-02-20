@@ -33,6 +33,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# zoxide
+eval "$(zoxide init zsh --cmd cd)"
+
 # Composer
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
 export COMPOSER_MEMORY_LIMIT=-1
