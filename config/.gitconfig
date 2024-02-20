@@ -4,12 +4,11 @@
     editor = code --wait
     pager = delta
 
-
 [include]
     path = ~/.git-config/.gitconfig-private
+
 [includeIf "gitdir:~/Code/_work/"]
     path = ~/.git-config/.gitconfig-work
-
 
 [gpg]
     program = gpg
@@ -53,12 +52,13 @@
 
 [merge]
     conflictstyle = diff3
+    ff = false
 
 [diff]
     colorMoved = default
 
 [diff "sopsdiffer"]
-	textconv = sops -d --config /dev/null
+    textconv = sops -d --config /dev/null
 
 [column]
     ui = auto
