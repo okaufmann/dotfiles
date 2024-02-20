@@ -2,83 +2,69 @@
 #!/usr/bin/env bash
 
 # Hide "last login" line when starting a new terminal session
-touch $HOME/.hushlogin
+touch "$HOME/.hushlogin"
 
 echo 'Check for Homebrew and install if we don''t have it'
 echo '----------------'
-if test ! $(which brew); then
+if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
   eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  brew update
 fi
 
 echo 'Install oh-my-zsh'
 echo '-----------------'
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-  chsh -s `which zsh`
-
-  echo 'Installing zsh plugins'
-  echo '------------'
-  rm -Rf $HOME/.oh-my-zsh/custom/plugins/artisan && git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
-  rm -Rf $HOME/.oh-my-zsh/custom/plugins/zsh-z && git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
+  chsh -s "$(which zsh)"
+else
+  omz update
 fi
 
-echo 'Setup git configs'
+echo 'Installing zsh plugins'
 echo '------------'
-git config --global core.excludesfile "$(chezmoi source-path)/config/.global-gitignore"
-git config --global include.path "$(chezmoi source-path)/config/.gitconfig"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+mkdir -p "$ZSH_CUSTOM/plugins"
 
 echo 'Install brew packages'
 echo '------------'
-
-# Update Homebrew recipes
-brew update
-
 brew tap homebrew/bundle
-brew bundle --no-lock --file=$(chezmoi source-path)/Brewfile
-
-# Link Postgres CLI
+brew bundle --no-lock --file="$(chezmoi source-path)/Brewfile"
 brew link --force libpq
 
 echo 'Finalize fzf install'
 echo '------------'
-$(brew --prefix)/opt/fzf/install
+"$(brew --prefix)/opt/fzf/install" --all --no-update-rc
 
 echo 'Initiate pre-commit'
-git config --global init.templateDir $(chezmoi source-path)/git-template
-pre-commit init-templatedir $(chezmoi source-path)/git-template
+echo '------------'
+pre-commit init-templatedir "$(chezmoi source-path)/git-template"
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+if [ ! -d "$NVM_DIR" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# source nvm stuff
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-nvm install 14
-nvm install 16
-nvm install 18
+  nvm install 14 --no-progress
+  nvm install 16 --no-progress
+  nvm install 18 --no-progress
+fi
 nvm alias default 18
 
 echo 'Install php environment'
 echo '---------------------------'
-sh $(chezmoi source-path)/install/php-env.sh
+sh "$(chezmoi source-path)/install/php-env.sh"
 
-echo 'Set macOS preferences'
-echo '---------------------------'
-# we will run this last because this will reload the shell
-source $(chezmoi source-path)/macos/set-defaults.sh
-
-echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
 echo 'All done!'
 echo 'Things to do to make the agnoster terminal theme work:'
 echo '1. Install patched solarized theme included in $(chezmoi source-path)/misc/iTerm Profile.json'
-echo '2. Allow sudo permittance with fingerprint. Futher instructions in $(chezmoi source-path)/misc/fingerprint.sh'
-echo '++++++++++++++++++++++++++++++'
+echo '2. Allow sudo permittance with fingerprint. Further instructions in $(chezmoi source-path)/misc/fingerprint.sh'
+echo '3. Set default mac settings by running source '"$(chezmoi source-path)/macos/set-defaults.sh"'
 echo '++++++++++++++++++++++++++++++'
 
 {{ end -}}
