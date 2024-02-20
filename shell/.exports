@@ -30,7 +30,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # FZF
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort' --layout=reverse --info=inline --preview 'cat {}' --border --margin=1 --padding=1"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zoxide
