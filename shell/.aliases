@@ -68,6 +68,8 @@ alias rollback="php artisan migrate:rollback --step=1"
 alias lpw="php artisan tinker --execute=\"echo Hash::make('$1')\" | pbcopy"
 alias vendorinit="rm -Rf vendor && composer install"
 alias pint="vendor/bin/pint $@"
+# to kill endless loops in Tinkerwell
+alias killtinker='ps ax | grep tinker_prepared.phar | grep -v grep | awk '\''{print $1}'\'' | while read pid; do echo "Killing process $pid"; kill $pid; done'
 
 # SSH
 # ---------------
