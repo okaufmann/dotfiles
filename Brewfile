@@ -4,9 +4,13 @@ tap 'homebrew/cask-versions'
 tap "homebrew/bundle"
 tap 'nicoverbruggen/homebrew-cask'
 tap '1password/tap'
+tap 'jesseduffield/lazygit'
 
 # Binaries
 brew 'bash' # Latest Bash version
+brew 'zsh'
+brew 'zoxide'
+brew 'spaceship'
 brew 'grep'
 brew 'coreutils' # Those that come with macOS are outdated
 brew "pkg-config"
@@ -36,6 +40,7 @@ brew 'libpq' # PostgresQL client
 brew 'jq' # JSON parser
 brew 'git'
 brew 'git-delta' # Git diff viewer
+brew 'lazygit'
 brew 'pre-commit' # Git hooks
 brew 'kubectx'
 brew 'kubernetes-cli'
