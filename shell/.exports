@@ -115,11 +115,18 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# Auto completion
+
 which hcloud &>/dev/null && source <(hcloud completion zsh)
-which flux &>/dev/null && source <(flux completion zsh)
-which velero &>/dev/null && source <(velero completion zsh)
-which kubectl &>/dev/null && source <(kubectl completion zsh)
-which argocd &>/dev/null && source <(argocd completion zsh)
+
+# As these commands are really slow, only load them if we are in a k8s context
+if [ -n "$KUBECONFIG" ]; then
+  which flux &>/dev/null && source <(flux completion zsh)
+  which velero &>/dev/null && source <(velero completion zsh)
+  which kubectl &>/dev/null && source <(kubectl completion zsh)
+  which argocd &>/dev/null && source <(argocd completion zsh)
+fi
+
 export KUBE_EDITOR='code --wait'
 export TALOS_EDITOR='code --wait'
 
@@ -127,5 +134,8 @@ export TALOS_EDITOR='code --wait'
 export TELEPORT_USE_LOCAL_SSH_AGENT=false
 
 export BAT_THEME="Coldark-Dark"
+
+# set config path for lazygit
+export XDG_CONFIG_HOME="$HOME/.config"
 
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
