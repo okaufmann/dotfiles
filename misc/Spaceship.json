@@ -1,10 +1,6 @@
 {
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.36536297202110291,
-    "Red Component" : 1
-  },
-  "Thin Strokes" : 4,
+  "Custom Directory" : "Recycle",
+  "Set Local Environment Vars" : 2,
   "Working Directory" : "\/Users\/wesbos",
   "Prompt Before Closing 2" : 1,
   "Selected Text Color" : {
@@ -52,6 +48,7 @@
     "slogin",
     "telnet"
   ],
+  "Non-ASCII Ligatures" : true,
   "Scrollback Lines" : 10000,
   "Draw Powerline Glyphs" : true,
   "Status Bar Layout" : {
@@ -67,9 +64,9 @@
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -81,9 +78,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -95,9 +92,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -109,9 +106,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -123,9 +120,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -138,9 +135,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },
@@ -153,9 +150,9 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       }
@@ -445,7 +442,7 @@
   },
   "Session Close Undo Timeout" : 30,
   "Blur" : false,
-  "Normal Font" : "FiraCodeNFM-Reg 17",
+  "Normal Font" : "FiraCodeNF-Reg 17",
   "Vertical Spacing" : 1.1499999999999999,
   "Use Underline Color" : true,
   "Ansi 7 Color" : {
@@ -492,7 +489,7 @@
   "Bound Hosts" : [
 
   ],
-  "Non Ascii Font" : "Monaco 12",
+  "Non Ascii Font" : "FiraCodeNFM-Reg 12",
   "Ansi 13 Color" : {
     "Green Component" : 0.3333333432674408,
     "Blue Component" : 1,
@@ -502,6 +499,10 @@
   "Columns" : 150,
   "Visual Bell" : true,
   "ASCII Ligatures" : true,
-  "Custom Directory" : "Recycle",
-  "Set Local Environment Vars" : 2
+  "Thin Strokes" : 4,
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.36536297202110291,
+    "Red Component" : 1
+  }
 }
