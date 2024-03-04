@@ -115,18 +115,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Auto completion
-
-which hcloud &>/dev/null && source <(hcloud completion zsh)
-
-# As these commands are really slow, only load them if we are in a k8s context
-if [ -n "$KUBECONFIG" ]; then
-  which flux &>/dev/null && source <(flux completion zsh)
-  which velero &>/dev/null && source <(velero completion zsh)
-  which kubectl &>/dev/null && source <(kubectl completion zsh)
-  which argocd &>/dev/null && source <(argocd completion zsh)
-fi
-
 export KUBE_EDITOR='code --wait'
 export TALOS_EDITOR='code --wait'
 

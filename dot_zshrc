@@ -9,6 +9,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Path to your dotfiles.
 export DOTFILES=$(chezmoi source-path)
 
+# brew Shell Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
