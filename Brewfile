@@ -46,6 +46,7 @@ brew 'kubectx'
 brew 'kubernetes-cli'
 brew 'sops'
 brew 'age'
+brew 'ngrok'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
