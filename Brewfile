@@ -50,6 +50,9 @@ brew 'ngrok'
 brew 'mat2'
 brew 'pnpm'
 brew 'make'
+brew 'aerc'
+brew 'w3m'
+brew 'dante'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
