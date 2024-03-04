@@ -9,8 +9,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Path to your dotfiles.
 export DOTFILES=$(chezmoi source-path)
 
-export COMPLETION_WAITING_DOTS=true
-
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/okaufmann/.oh-my-zsh
 
