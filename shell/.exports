@@ -115,6 +115,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+eval $(thefuck --alias)
+
 export KUBE_EDITOR='code --wait'
 export TALOS_EDITOR='code --wait'
 
