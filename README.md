@@ -59,4 +59,4 @@ Feel free to create an issue on this repo if you have any questions about them.
 
 ## Problems
 
-chezmoi doctor
+    chezmoi doctor
