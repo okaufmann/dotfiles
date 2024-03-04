@@ -8,4 +8,4 @@ git:
 
 gui:
   showFileTree: false
-  # nerdFontsVersion: "3"
+  nerdFontsVersion: "3"
