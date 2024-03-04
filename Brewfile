@@ -53,6 +53,7 @@ brew 'make'
 brew 'aerc'
 brew 'w3m'
 brew 'dante'
+brew 'thefuck'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
@@ -66,6 +67,7 @@ brew 'istioctl'
 brew 'kubectx'
 brew 'kubent' # check your clusters for use of deprecated APIs
 brew 'kustomize'
+brew 'restic'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
