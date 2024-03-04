@@ -1,6 +1,10 @@
 {
-  "Custom Directory" : "Recycle",
-  "Set Local Environment Vars" : 2,
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.36536297202110291,
+    "Red Component" : 1
+  },
+  "Thin Strokes" : 4,
   "Working Directory" : "\/Users\/wesbos",
   "Prompt Before Closing 2" : 1,
   "Selected Text Color" : {
@@ -441,7 +445,7 @@
   },
   "Session Close Undo Timeout" : 30,
   "Blur" : false,
-  "Normal Font" : "FiraCodeRoman-Regular 17",
+  "Normal Font" : "FiraCodeNFM-Reg 17",
   "Vertical Spacing" : 1.1499999999999999,
   "Use Underline Color" : true,
   "Ansi 7 Color" : {
@@ -498,10 +502,6 @@
   "Columns" : 150,
   "Visual Bell" : true,
   "ASCII Ligatures" : true,
-  "Thin Strokes" : 4,
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.36536297202110291,
-    "Red Component" : 1
-  }
+  "Custom Directory" : "Recycle",
+  "Set Local Environment Vars" : 2
 }

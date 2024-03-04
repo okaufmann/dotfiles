@@ -25,7 +25,7 @@ brew "nmap"
 brew "fzf"
 brew "bat"
 brew "fx"
-brew "exa"
+brew "eza"
 brew "fswatch"
 brew "ghostscript"
 brew "zsh-autosuggestions"
@@ -76,6 +76,7 @@ brew 'yarn'
 
 # Fonts
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-menlo-for-powerline'
