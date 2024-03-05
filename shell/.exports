@@ -61,9 +61,6 @@ export LC_CTYPE=en_US.utf-8 # fix Setting locale failed error
 # Use 1Passport as ssh agent
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# dotnet cli tools
-export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
-
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -114,7 +111,7 @@ add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
 # pnpm
-export PNPM_HOME="/Users/okaufmann/Library/pnpm"
+export PNPM_HOME="~/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
