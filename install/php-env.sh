@@ -37,10 +37,6 @@ echo 'Install redis'
 echo '-------------'
 pecl install redis
 
-echo 'Install laravel envoy'
-echo '---------------------'
-composer global require laravel/envoy -W
-
 echo 'Install laravel installer'
 echo '---------------------'
 composer global require laravel/installer -W
