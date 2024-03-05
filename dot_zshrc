@@ -13,17 +13,10 @@ export DOTFILES=$(chezmoi source-path)
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/okaufmann/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Setup xdebug
 export XDEBUG_CONFIG="idekey=PHPSTORM"
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="remy"
-# ZSH_THEME="cobalt2"
-DEFAULT_USER="okaufmann"
 
 # CONFIG SPACESHIP
 # based on https://gist.github.com/PierreThiollent/9087a26d56e0704c263baf7e1a5f3827
