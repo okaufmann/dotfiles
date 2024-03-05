@@ -4,5 +4,8 @@
 [include]
     path = ~/.local/share/chezmoi/config/.gitconfig
 
+[include]
+    path = ~/.dotfiles-custom/config/.gitconfig
+
 [init]
     templateDir = ~/.local/share/chezmoi/git-template
