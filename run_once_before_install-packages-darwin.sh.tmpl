@@ -35,9 +35,14 @@ echo 'Finalize fzf install'
 echo '------------'
 "$(brew --prefix)/opt/fzf/install" --all --no-update-rc
 
-echo 'Initiate pre-commit'
+echo 'Initiate pre-commit.'
 echo '------------'
-pre-commit init-templatedir "$(chezmoi source-path)/git-template"
+if [ -d "$(chezmoi source-path)/git-template" ]; then
+    echo -e "\033[33mThe folder '$(chezmoi source-path)/git-template' already exists.\033[0m"
+else
+    pre-commit init-templatedir "$(chezmoi source-path)/git-template"
+fi
+
 
 echo 'Install node version manager (nvm)'
 echo '-----------'

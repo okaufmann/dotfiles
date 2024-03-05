@@ -5,9 +5,7 @@ tap 'homebrew/bundle'
 tap 'nicoverbruggen/homebrew-cask'
 tap '1password/tap'
 tap 'jesseduffield/lazygit'
-tap 'siderolabs/talos'
 tap 'norwoodj/tap'
-tap 'ngrok/ngrok'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -47,7 +45,7 @@ brew 'lazygit'
 brew 'pre-commit' # Git hooks
 brew 'sops'
 brew 'age'
-brew 'ngrok'
+brew 'ngrok/ngrok/ngrok'
 brew 'mat2'
 brew 'pnpm'
 brew 'make'
@@ -58,7 +56,7 @@ brew 'thefuck'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
-brew 'talosctl'
+brew 'siderolabs/talos/talosctl'
 brew 'helm'
 brew 'helm-docs'
 brew 'velero'
@@ -79,6 +77,7 @@ brew 'gifsicle'
 
 # PHP Dependencies
 brew 'php'
+brew 'php@8.2'
 brew 'php@8.1'
 brew 'php@8.0'
 brew 'php@7.4'
