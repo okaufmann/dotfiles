@@ -183,7 +183,7 @@ function phprestart() {
 }
 
 function xdebug() {
-    basePath="/opt/homebrew/etc/php"
+    basePath="$(brew --prefix)/etc/php"
     currentVersion=$(phpversion)
     iniFileLocation="$basePath/${currentVersion}/conf.d/ext-xdebug.ini";
     echo "checking ini file at $iniFileLocation"

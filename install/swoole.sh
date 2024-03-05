@@ -4,12 +4,12 @@
 
 brew install openssl
 
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+export PATH="$HOMEBREW_PREFIX/opt/openssl@3/bin:$PATH"
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl@3/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openssl@3/include"
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl@3/lib/pkgconfig"
 
 brew install pcre2
-sudo ln -s /opt/homebrew/include/pcre2.h /usr/local/include/
+sudo ln -s "$HOMEBREW_PREFIX/include/pcre2.h" /usr/local/include/
 
 yes | pecl install swoole

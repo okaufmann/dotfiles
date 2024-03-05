@@ -3,7 +3,7 @@
 # set -ex
 
 # Load Homebrew (M1)
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # dont update all other packages when installing a new brew package
 # https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
@@ -23,7 +23,7 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER="less -X"
 
 # Spaceship theme
-source /opt/homebrew/opt/spaceship/spaceship.zsh
+source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 
 # zsh autosuggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
