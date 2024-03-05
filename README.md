@@ -47,6 +47,10 @@ Feel free to create an issue on this repo if you have any questions about them.
 
 ![screenshot](https://okaufmann.github.io/dotfiles/screenshot.png)
 
+## Encryption
+
+There are some encrypted files in this repo. You may find a hint in the README of the specific folder.
+
 ## Update
 
     chezmoi status
