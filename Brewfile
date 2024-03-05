@@ -1,10 +1,12 @@
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap "homebrew/bundle"
+tap 'homebrew/bundle'
 tap 'nicoverbruggen/homebrew-cask'
 tap '1password/tap'
 tap 'jesseduffield/lazygit'
+tap 'siderolabs/talos'
+tap 'norwoodj/tap'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -13,27 +15,27 @@ brew 'zoxide'
 brew 'spaceship'
 brew 'grep'
 brew 'coreutils' # Those that come with macOS are outdated
-brew "pkg-config"
-brew "ack"
-brew "wget"
-brew "httpie"
-brew "ncdu"
-brew "hub"
-brew "tldr"
-brew "bind" # used to have dig as binary
-brew "nmap"
-brew "fzf"
-brew "bat"
-brew "fx"
-brew "exa"
-brew "fswatch"
-brew "ghostscript"
-brew "zsh-autosuggestions"
-brew "prettyping"
-brew "ettercap"
-brew "ffmpeg"
-brew "gpg"
-brew "ocrmypdf"
+brew 'pkg-config'
+brew 'ack'
+brew 'wget'
+brew 'httpie'
+brew 'ncdu'
+brew 'hub'
+brew 'tldr'
+brew 'bind' # used to have dig as binary
+brew 'nmap'
+brew 'fzf'
+brew 'bat'
+brew 'fx'
+brew 'eza'
+brew 'fswatch'
+brew 'ghostscript'
+brew 'zsh-autosuggestions'
+brew 'prettyping'
+brew 'ettercap'
+brew 'ffmpeg'
+brew 'gpg'
+brew 'ocrmypdf'
 brew 'svn' # Needed to install fonts
 brew 'mas' # Mac App Store manager
 brew 'libpq' # PostgresQL client
@@ -42,10 +44,30 @@ brew 'git'
 brew 'git-delta' # Git diff viewer
 brew 'lazygit'
 brew 'pre-commit' # Git hooks
-brew 'kubectx'
-brew 'kubernetes-cli'
 brew 'sops'
 brew 'age'
+brew 'ngrok'
+brew 'mat2'
+brew 'pnpm'
+brew 'make'
+brew 'aerc'
+brew 'w3m'
+brew 'dante'
+brew 'thefuck'
+
+# Kubernetes
+brew 'kubernetes-cli' # kubectl and dependencie for other plugins
+brew 'talosctl'
+brew 'helm'
+brew 'helm-docs'
+brew 'velero'
+brew 'argocd'
+brew 'cilium-cli'
+brew 'istioctl'
+brew 'kubectx'
+brew 'kubent' # check your clusters for use of deprecated APIs
+brew 'kustomize'
+brew 'restic'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
@@ -63,18 +85,15 @@ brew 'composer'
 brew 'libyaml'
 brew 'imagemagick'
 
-# Development
-brew "dnsmasq"
-
-# brew 'meilisearch'
+# Valet
+brew 'dnsmasq'
 brew 'mysql', restart_service: true
 brew 'nginx'
-# brew 'node'
 brew 'redis', restart_service: true
-brew 'yarn'
 
 # Fonts
-cask "font-fira-code"
+cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-menlo-for-powerline'
@@ -84,8 +103,8 @@ cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
  # Apps
-cask "keepingyouawake"
-cask "phpmon"
+cask 'keepingyouawake'
+cask 'phpmon'
 cask 'discord'
 cask 'docker'
 cask 'insomnia'
@@ -99,21 +118,12 @@ cask 'tinkerwell'
 cask '1password-cli'
 
 # Quicklook
-cask "syntax-highlight"
-cask "qlstephen"
-cask "qlmarkdown"
-cask "quicklook-json"
-cask "qlprettypatch"
-cask "quicklook-csv"
-cask "suspicious-package"
-cask "webpquicklook"
-cask "qlimagesize"
-
-# mas 'Byword', id: 420212497
-# mas 'Giphy Capture', id: 668208984
-# mas 'Keynote', id: 409183694
-# mas 'Numbers', id: 409203825
-# mas 'Spark', id: 1176895641
-# mas 'Speedtest', id: 1153157709
-# mas 'Things', id: 904280696
-mas 'Tweetbot', id: 1384080005
+cask 'syntax-highlight'
+cask 'qlstephen'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'qlprettypatch'
+cask 'quicklook-csv'
+cask 'suspicious-package'
+cask 'webpquicklook'
+cask 'qlimagesize'

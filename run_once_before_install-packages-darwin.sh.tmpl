@@ -18,8 +18,6 @@ echo '-----------------'
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
   chsh -s "$(which zsh)"
-else
-  omz update
 fi
 
 echo 'Installing zsh plugins'
@@ -52,8 +50,9 @@ if [ ! -d "$NVM_DIR" ]; then
   nvm install 14 --no-progress
   nvm install 16 --no-progress
   nvm install 18 --no-progress
+
+  nvm alias default 18
 fi
-nvm alias default 18
 
 echo 'Install php environment'
 echo '---------------------------'
@@ -64,7 +63,7 @@ echo 'All done!'
 echo 'Things to do to make the agnoster terminal theme work:'
 echo '1. Install patched solarized theme included in $(chezmoi source-path)/misc/iTerm Profile.json'
 echo '2. Allow sudo permittance with fingerprint. Further instructions in $(chezmoi source-path)/misc/fingerprint.sh'
-echo '3. Set default mac settings by running source "$(chezmoi source-path)/macos/set-defaults.sh"'
+echo '3. Set default mac settings by running source '"'"'$(chezmoi source-path)/macos/set-defaults.sh'"'"''
 echo '++++++++++++++++++++++++++++++'
 
 {{- end -}}

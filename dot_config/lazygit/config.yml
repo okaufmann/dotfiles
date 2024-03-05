@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  autoFetch: false
+
+
+gui:
+  showFileTree: false
+  nerdFontsVersion: "3"

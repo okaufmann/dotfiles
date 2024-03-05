@@ -36,9 +36,12 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort' --layout=reverse
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
-# Composer
+# Composer and PHP
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
+export PATH="~/.config/phpmon/bin:$PATH"
 export COMPOSER_MEMORY_LIMIT=-1
+export PHP_CS_FIXER_IGNORE_ENV=true
+
 
 # Tools
 export PATH="/Users/${USER}/Code/tools:$PATH"
@@ -55,8 +58,8 @@ export LC_MESSAGES="en_US.UTF-8"
 # export LC_ALL="en_US.UTF-8"
 export LC_CTYPE=en_US.utf-8 # fix Setting locale failed error
 
-# dotnet cli tools
-export PATH="$PATH:/Users/okaufmann/.dotnet/tools"
+# Use 1Passport as ssh agent
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -108,18 +111,15 @@ add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
 # pnpm
-export PNPM_HOME="/Users/okaufmann/Library/pnpm"
+export PNPM_HOME="~/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-which hcloud &>/dev/null && source <(hcloud completion zsh)
-which flux &>/dev/null && source <(flux completion zsh)
-which velero &>/dev/null && source <(velero completion zsh)
-which kubectl &>/dev/null && source <(kubectl completion zsh)
-which argocd &>/dev/null && source <(argocd completion zsh)
+eval $(thefuck --alias)
+
 export KUBE_EDITOR='code --wait'
 export TALOS_EDITOR='code --wait'
 
@@ -127,5 +127,8 @@ export TALOS_EDITOR='code --wait'
 export TELEPORT_USE_LOCAL_SSH_AGENT=false
 
 export BAT_THEME="Coldark-Dark"
+
+# set config path for lazygit
+export XDG_CONFIG_HOME="$HOME/.config"
 
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh

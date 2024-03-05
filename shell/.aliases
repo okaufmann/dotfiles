@@ -86,10 +86,11 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias grep="grep --color=auto"
 alias top="sudo htop"
 alias dc="docker-compose"
+alias cm="chezmoi"
 
 # List all files colorized in long format
 alias l="ls -laF"
-alias ls="exa -lah --git $@"
+alias ls="eza -lah --git --icons $@"
 alias kubeconfig='code ~/.kube/config'
 
 # allow to use watch with aliases

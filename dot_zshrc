@@ -9,32 +9,25 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Path to your dotfiles.
 export DOTFILES=$(chezmoi source-path)
 
-export COMPLETION_WAITING_DOTS=true
+# brew Shell Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/okaufmann/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Setup xdebug
 export XDEBUG_CONFIG="idekey=PHPSTORM"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="remy"
-# ZSH_THEME="cobalt2"
-DEFAULT_USER="okaufmann"
-
 # CONFIG SPACESHIP
 # based on https://gist.github.com/PierreThiollent/9087a26d56e0704c263baf7e1a5f3827
 # colors: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
-# SPACESHIP_CHAR_SYMBOL="🚀 "
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="- "
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_DIR_PREFIX="🗂  "
 SPACESHIP_DIR_COLOR="033"
-SPACESHIP_GIT_BRANCH_PREFIX="⚡ "
+SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_PREFIX=""
 SPACESHIP_GIT_PREFIX_COLOR="123"
 SPACESHIP_GIT_STATUS_SHOW=true
@@ -50,6 +43,7 @@ SPACESHIP_KUBECTL_SHOW=true
 SPACESHIP_DOTNET_COLOR="blue"
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR=240
+SPACESHIP_CHAR_SYMBOL=" "
 
 SPACESHIP_PROMPT_ORDER=(
 #   time           # Time stamps section
