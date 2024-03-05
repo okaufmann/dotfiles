@@ -3,8 +3,8 @@ Include conf.d/company
 
 # Global Settings
 Host *
-     # Use 1Password as SSH Agent
-	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    # Use 1Password as SSH Agent
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
     # Use only the identity keys configured in the ssh config, ignoring any other keys ssh-agent may provide.
     IdentitiesOnly yes
