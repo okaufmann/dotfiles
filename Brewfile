@@ -7,6 +7,7 @@ tap '1password/tap'
 tap 'jesseduffield/lazygit'
 tap 'siderolabs/talos'
 tap 'norwoodj/tap'
+tap 'ngrok/ngrok'
 
 # Binaries
 brew 'bash' # Latest Bash version
