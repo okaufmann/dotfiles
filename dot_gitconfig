@@ -8,4 +8,4 @@
     path = ~/.dotfiles-custom/config/.gitconfig
 
 [init]
-    templateDir = ~/.local/share/chezmoi/git-template
+    templateDir = ~/.git-template
