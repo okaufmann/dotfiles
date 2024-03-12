@@ -118,6 +118,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+eval "$(github-copilot-cli alias -- "$0")"
+
 eval $(thefuck --alias)
 
 export KUBE_EDITOR='code --wait'

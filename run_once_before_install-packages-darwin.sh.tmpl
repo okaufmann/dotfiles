@@ -59,6 +59,10 @@ if [ ! -d "$NVM_DIR" ]; then
   nvm alias default 18
 fi
 
+echo 'Install npm packages'
+echo '------------'
+npm install -g @githubnext/github-copilot-cli
+
 echo 'Install php environment'
 echo '---------------------------'
 sh "$(chezmoi source-path)/install/php-env.sh"
