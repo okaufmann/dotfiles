@@ -4,6 +4,11 @@
 # Hide "last login" line when starting a new terminal session
 touch "$HOME/.hushlogin"
 
+# For first installs create a alias to make chezmoi available
+if ! command -v chezmoi &> /dev/null; then
+    alias chezmoi='./bin/chezmoi'
+fi
+
 echo 'Check for Homebrew and install if we don''t have it'
 echo '----------------'
 if ! command -v brew &>/dev/null; then
