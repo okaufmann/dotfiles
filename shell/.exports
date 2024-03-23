@@ -122,6 +122,8 @@ eval "$(github-copilot-cli alias -- "$0")"
 
 eval $(thefuck --alias)
 
+eval "$(github-copilot-cli alias -- "$0")"
+
 export KUBE_EDITOR='code --wait'
 export TALOS_EDITOR='code --wait'
 
