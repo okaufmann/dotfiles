@@ -18,6 +18,12 @@ else
   brew update
 fi
 
+echo 'Install brew packages'
+echo '------------'
+brew tap homebrew/bundle
+brew bundle --no-lock --file="$(chezmoi source-path)/Brewfile"
+brew link --force libpq
+
 echo 'Install oh-my-zsh'
 echo '-----------------'
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -30,12 +36,6 @@ echo '------------'
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 mkdir -p "$ZSH_CUSTOM/plugins"
 
-echo 'Install brew packages'
-echo '------------'
-brew tap homebrew/bundle
-brew bundle --no-lock --file="$(chezmoi source-path)/Brewfile"
-brew link --force libpq
-
 echo 'Finalize fzf install'
 echo '------------'
 "$(brew --prefix)/opt/fzf/install" --all --no-update-rc
@@ -47,7 +47,6 @@ if [ -d "~/git-template" ]; then
 else
     pre-commit init-templatedir ~/.git-template
 fi
-
 
 echo 'Install node version manager (nvm)'
 echo '-----------'
