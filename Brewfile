@@ -76,20 +76,20 @@ brew 'svgo'
 brew 'gifsicle'
 
 # PHP Dependencies
-brew 'php'
-brew 'php@8.2'
-brew 'php@8.1'
-brew 'php@8.0'
-brew 'php@7.4'
-brew 'composer'
-brew 'libyaml'
-brew 'imagemagick'
+# brew 'php'
+# brew 'php@8.2'
+# brew 'php@8.1'
+# brew 'php@8.0'
+# brew 'php@7.4'
+# brew 'composer'
+# brew 'libyaml'
+# brew 'imagemagick'
 
 # Valet
-brew 'dnsmasq'
-brew 'mysql', restart_service: true
-brew 'nginx'
-brew 'redis', restart_service: true
+# brew 'dnsmasq'
+# brew 'mysql', restart_service: true
+# brew 'nginx'
+# brew 'redis', restart_service: true
 
 # Fonts
 cask 'font-fira-code'
@@ -103,16 +103,16 @@ cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
  # Apps
-cask 'keepingyouawake'
-cask 'phpmon'
+cask 'amphetamine'
+# cask 'phpmon'
 cask 'discord'
 cask 'docker'
-cask 'insomnia'
-cask 'ray'
+cask 'postman'
+# cask 'ray'
 cask 'slack'
 cask 'visual-studio-code'
 cask 'zoom'
-cask 'helo'
+# cask 'helo'
 cask 'telegram-desktop'
 cask 'tinkerwell'
 cask '1password-cli'
