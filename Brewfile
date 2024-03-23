@@ -56,7 +56,7 @@ brew 'thefuck'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
-brew 'siderolabs/talos/talosctl'
+brew 'siderolabs/tap/talosctl'
 brew 'helm'
 brew 'helm-docs'
 brew 'velero'
