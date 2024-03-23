@@ -6,7 +6,9 @@ touch "$HOME/.hushlogin"
 
 # For first installs create a alias to make chezmoi available
 if ! command -v chezmoi &> /dev/null; then
-    alias chezmoi='./bin/chezmoi'
+    chezmoi='./bin/chezmoi'
+else
+    chezmoi='chezmoi'
 fi
 
 echo 'Check for Homebrew and install if we don''t have it'
