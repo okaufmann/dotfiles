@@ -1,6 +1,10 @@
 {
-  "Custom Directory" : "Recycle",
-  "Set Local Environment Vars" : 2,
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.36536297202110291,
+    "Red Component" : 1
+  },
+  "Thin Strokes" : 4,
   "Working Directory" : "\/Users\/wesbos",
   "Prompt Before Closing 2" : 1,
   "Selected Text Color" : {
@@ -64,9 +68,10 @@
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -78,9 +83,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -92,9 +98,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -106,9 +113,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -120,9 +128,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -135,9 +144,10 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       },
@@ -150,16 +160,17 @@
             "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "algorithm" : 0
+            "remove empty components" : true,
+            "font" : ".SFNS-Regular 14",
+            "algorithm" : 0,
+            "auto-rainbow style" : 0
           }
         }
       }
     ],
     "advanced configuration" : {
-      "remove empty components" : false,
-      "font" : ".AppleSystemUIFont 12",
+      "remove empty components" : true,
+      "font" : ".SFNS-Regular 14",
       "algorithm" : 0,
       "auto-rainbow style" : 0
     }
@@ -499,10 +510,6 @@
   "Columns" : 150,
   "Visual Bell" : true,
   "ASCII Ligatures" : true,
-  "Thin Strokes" : 4,
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.36536297202110291,
-    "Red Component" : 1
-  }
+  "Custom Directory" : "Recycle",
+  "Set Local Environment Vars" : 2
 }
