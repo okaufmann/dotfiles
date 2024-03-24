@@ -19,6 +19,25 @@ brew tap homebrew/bundle
 brew bundle --no-lock --file="{{ .chezmoi.sourceDir }}/Brewfile"
 brew link --force libpq
 
+echo 'Install Apps from AppStore'
+echo '------------'
+mas install 937984704 # Amphetamine
+mas install 904280696 # Things
+mas install 360593530 # Notability
+mas install 1435055351 # PDFify
+mas install -2142946629 # RedisInsight
+mas install 1090488118 # Gemini 2
+mas install 1529448980 # Reeder 5
+mas install 1291898086 # Toggl
+mas install 1099568401 # Home Assistant
+mas install 1534275760 # LanguageTool
+mas install 1193539993 # Brother iPrint&Scan
+mas install 411643860 # DaisyDisk
+mas install 1436522307 # Transmit 5
+mas install 1451685025 # WireGuard
+mas install 1295203466 # Microsoft Remote Desktop
+mas install 747648890 # Telegram
+
 echo 'Install oh-my-zsh'
 echo '-----------------'
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
