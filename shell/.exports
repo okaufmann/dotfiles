@@ -118,6 +118,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+eval "$(gh copilot alias -- bash)"
+
 eval $(thefuck --alias)
 
 eval "$(github-copilot-cli alias -- "$0")"
