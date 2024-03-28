@@ -210,7 +210,7 @@ sudo pmset -b displaysleep 5
 # Disable machine sleep while charging
 sudo pmset -c sleep 0
 
-# Set machine sleep to 5 minutes on battery
+# Set machine sleep to 10 minutes on battery
 sudo pmset -b sleep 10
 
 # Set standby delay to 24 hours (default is 1 hour)
