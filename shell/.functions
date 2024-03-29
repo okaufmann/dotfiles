@@ -305,7 +305,7 @@ function format_size() {
 }
 
 function removeVendors() {
-    local projectsFolder="$HOME/Code";
+    local projectsFolder="$HOME/Code/$1";
     local dryrun=0
 
     # Check for --dry-run argument
