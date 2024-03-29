@@ -120,6 +120,7 @@ cask 'raindropio'
 cask 'visual-studio-code'
 cask 'tinkerwell'
 cask '1password-cli'
+cask 'mackup'
 # cask 'ray'
 # cask 'helo'
 
