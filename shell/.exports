@@ -42,9 +42,8 @@ export PATH="~/.config/phpmon/bin:$PATH"
 export COMPOSER_MEMORY_LIMIT=-1
 export PHP_CS_FIXER_IGNORE_ENV=true
 
-
 # Tools
-export PATH="/Users/${USER}/Code/tools:$PATH"
+export PATH="/Users/${USER}/Code/private/tools/_bin:$PATH"
 
 # Go
 export GOPATH=$HOME/Code/go-workspace
@@ -78,6 +77,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# mysql client
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # import nvm global bin folder for CLI tools
 currentNvm=$(nvm which current)

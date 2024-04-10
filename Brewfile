@@ -8,6 +8,8 @@ tap 'jesseduffield/lazygit'
 tap 'norwoodj/tap'
 tap 'ngrok/ngrok'
 tap 'siderolabs/tap'
+tap 'fairwindsops/tap'
+tap 'fluxcd/tap'
 
 # Binaries
 brew 'chezmoi'
@@ -58,6 +60,9 @@ brew 'w3m'
 brew 'dante'
 brew 'thefuck'
 brew 'gource'
+brew 'awscli'
+brew 'tree'
+brew 'mysql-client'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
@@ -72,6 +77,8 @@ brew 'kubectx'
 brew 'kubent' # check your clusters for use of deprecated APIs
 brew 'kustomize'
 brew 'restic'
+brew 'fairwindsops/tap/nova'
+brew 'fluxcd/tap/flux'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
@@ -121,6 +128,7 @@ cask 'visual-studio-code'
 cask 'tinkerwell'
 cask '1password-cli'
 cask 'mackup'
+cask 'sensiblesidebuttons'
 # cask 'ray'
 # cask 'helo'
 

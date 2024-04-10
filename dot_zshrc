@@ -122,7 +122,7 @@ SPACESHIP_RPROMPT_ORDER=(
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
+# Uncomment the following line to disable bi-weekly-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -210,3 +210,5 @@ export PATH="/Users/okaufmann/Library/Application Support/Herd/bin/":$PATH
 
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/okaufmann/Library/Application Support/Herd/config/php/82/"
+
+PATH=~/.console-ninja/.bin:$PATH

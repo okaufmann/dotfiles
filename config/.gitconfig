@@ -7,7 +7,7 @@
 [include]
     path = ~/.git-config/.gitconfig-private
 
-[includeIf "gitdir:~/Code/_work/"]
+[includeIf "gitdir:~/Code/work/"]
     path = ~/.git-config/.gitconfig-work
 
 [gpg]

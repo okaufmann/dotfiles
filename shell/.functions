@@ -365,11 +365,11 @@ function db {
     rootpasswd="";
 
     if [ "$1" = "refresh" ]; then
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "drop database $2; create database \`$2\` CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
+        MYSQL_PWD=${rootpasswd} mysql -h 127.0.0.1 -uroot -e "drop database $2; create database \`$2\` CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
     elif [ "$1" = "create" ]; then
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "create database \`$2\`"
+        MYSQL_PWD=${rootpasswd} mysql -h 127.0.0.1 -uroot -e "create database \`$2\`"
     elif [ "$1" = "drop" ]; then
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "drop database \`$2\`"
+        MYSQL_PWD=${rootpasswd} mysql -h 127.0.0.1 -uroot -e "drop database \`$2\`"
     fi
 }
 
@@ -386,7 +386,7 @@ function createDb() {
 
     if [[ "$DB_CONNECTION" == "mysql" ]]; then
         echo "creating Database $DB_DATABASE in MySQL ";
-        MYSQL_PWD=${DB_PASSWORD} mysql -u${DB_USERNAME} -e "CREATE DATABASE \`$DB_DATABASE\` CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;";
+        MYSQL_PWD=${DB_PASSWORD} mysql -h ${DB_HOST} -u${DB_USERNAME} -e "CREATE DATABASE \`$DB_DATABASE\` CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;";
     elif [[ "$DB_CONNECTION" == "pgsql" ]]; then
         echo "creating Database $DB_DATABASE in Postgres ";
         PGPASSWORD=${DB_PASSWORD} psql -h ${DB_HOST} -p ${DB_PORT} -U ${DB_USERNAME} -c "CREATE DATABASE $DB_DATABASE;"
@@ -405,7 +405,7 @@ function dropDb() {
     DB_PASSWORD=$(grep DB_PASSWORD .env | grep -v -e '^\s*#' | cut -d '=' -f 2-)
 
     if [[ "$DB_CONNECTION" == "mysql" ]]; then
-        MYSQL_PWD=${DB_PASSWORD} mysql -u${DB_USERNAME} -e "DROP DATABASE IF EXISTS \`$DB_DATABASE\`;";
+        MYSQL_PWD=${DB_PASSWORD} mysql -h ${DB_HOST} -u${DB_USERNAME} -e "DROP DATABASE IF EXISTS \`$DB_DATABASE\`;";
     elif [[ "$DB_CONNECTION" == "pgsql" ]]; then
         PGPASSWORD=${DB_PASSWORD} psql -h ${DB_HOST} -p ${DB_PORT} -U ${DB_USERNAME} -c "DROP DATABASE IF EXISTS $DB_DATABASE;"
     fi
@@ -415,11 +415,11 @@ function execSql() {
     rootpasswd="";
     if [ -z "$2" ]; then
         query=$1
-        MYSQL_PWD=${rootpasswd} mysql -uroot -e "$query";
+        MYSQL_PWD=${rootpasswd} mysql -h 127.0.0.1 -uroot -e "$query";
     else
         DB=$1;
         query=$2;
-        MYSQL_PWD=${rootpasswd} mysql -uroot -D "$DB" -e "$query";
+        MYSQL_PWD=${rootpasswd} mysql -h 127.0.0.1 -uroot -D "$DB" -e "$query";
     fi
 }
 
@@ -433,7 +433,7 @@ function backupLocalDbs() {
     # user = root
     # password = secret
     # ```
-    for DB in $(mysql -e 'show databases' -s --skip-column-names); do
+    for DB in $(mysql -h 127.0.0.1 -e 'show databases' -s --skip-column-names); do
         echo "backing up $DB..."
         mysqldump $DB | gzip > "$DB.sql.gz";
     done
