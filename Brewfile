@@ -49,6 +49,7 @@ brew 'git'
 brew 'git-delta' # Git diff viewer
 brew 'lazygit'
 brew 'pre-commit' # Git hooks
+brew 'gh' # GitHub CLI
 brew 'sops'
 brew 'age'
 brew 'ngrok'
