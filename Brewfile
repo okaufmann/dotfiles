@@ -65,6 +65,7 @@ brew 'awscli'
 brew 'tree'
 brew 'mysql-client'
 brew 'ansible'
+brew 'yq'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
