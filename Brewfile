@@ -30,6 +30,7 @@ brew 'tldr'
 brew 'bind' # used to have dig as binary
 brew 'nmap'
 brew 'fzf'
+brew 'fd'
 brew 'bat'
 brew 'fx'
 brew 'eza'
