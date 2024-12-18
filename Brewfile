@@ -42,6 +42,7 @@ brew 'ettercap'
 brew 'ffmpeg'
 brew 'gpg'
 brew 'ocrmypdf'
+brew 'tesseract-lang'
 brew 'svn' # Needed to install fonts
 brew 'mas' # Mac App Store manager
 brew 'libpq' # PostgresQL client
@@ -67,6 +68,8 @@ brew 'tree'
 brew 'mysql-client'
 brew 'ansible'
 brew 'yq'
+brew 'watch'
+brew 'packer'
 
 # Kubernetes
 brew 'kubernetes-cli' # kubectl and dependencie for other plugins
@@ -83,6 +86,7 @@ brew 'kustomize'
 brew 'restic'
 brew 'fairwindsops/tap/nova'
 brew 'fluxcd/tap/flux'
+brew 'dive'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
