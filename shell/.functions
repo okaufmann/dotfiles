@@ -711,13 +711,11 @@ function setupS3Bucket() {
     echo
     echo "To use it in your Laravel Project, update the following environment variables in your .env file:"
     echo
-    echo "S3_ASSETS_ACCESS_KEY_ID=$ACCESS_KEY"
-    echo "S3_ASSETS_SECRET_ACCESS_KEY=$ACCESS_SECRET"
-    echo "S3_ASSETS_DEFAULT_REGION=$region"
-    echo "S3_ASSETS_BUCKET=$name"
-    echo "S3_ASSETS_ENDPOINT=https://s3.${region}.wasabisys.com"
-    unset $ACCESS_KEY
-    unset $ACCESS_SECRET
+    echo "S3_ACCESS_KEY_ID=$ACCESS_KEY"
+    echo "S3_SECRET_ACCESS_KEY=$ACCESS_SECRET"
+    echo "S3_DEFAULT_REGION=$region"
+    echo "S3_BUCKET=$name"
+    echo "S3_ENDPOINT=https://s3.${region}.wasabisys.com"
 }
 
 function deleteS3User() {

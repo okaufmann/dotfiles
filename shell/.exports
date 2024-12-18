@@ -85,12 +85,11 @@ _fzf_comprun() {
   esac
 }
 
-
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
 # Composer and PHP
-export PATH="$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="~/.config/phpmon/bin:$PATH"
 export COMPOSER_MEMORY_LIMIT=-1
 export PHP_CS_FIXER_IGNORE_ENV=true
@@ -173,7 +172,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(gh copilot alias -- bash)"
+# eval "$(gh copilot alias -- bash)"
 
 eval $(thefuck --alias)
 
