@@ -130,9 +130,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# mysql client
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-
 # import nvm global bin folder for CLI tools
 currentNvm=$(nvm which current)
 export PATH="$(dirname $currentNvm):$PATH"

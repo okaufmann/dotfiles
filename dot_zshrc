@@ -212,3 +212,7 @@ export PATH="/Users/okaufmann/Library/Application Support/Herd/bin/":$PATH
 export HERD_PHP_82_INI_SCAN_DIR="/Users/okaufmann/Library/Application Support/Herd/config/php/82/"
 
 PATH=~/.console-ninja/.bin:$PATH
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/okaufmann/Library/Application Support/Herd/config/php/84/"
