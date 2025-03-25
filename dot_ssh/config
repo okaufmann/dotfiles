@@ -7,7 +7,10 @@ Host *
     IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
     # Use only the identity keys configured in the ssh config, ignoring any other keys ssh-agent may provide.
-    IdentitiesOnly yes
+    # NOTICE: This is a security feature to prevent the use of unauthorized keys.
+    #         If you need to enable this, ensure to setup SSH Bookmarks in your 1Password client
+    #         https://developer.1password.com/docs/ssh/bookmarks
+    IdentitiesOnly no
 
     # Disable the use of the obsolete "roaming" feature to prevent potential security vulnerabilities.
     UseRoaming no
