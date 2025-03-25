@@ -65,7 +65,7 @@ brew 'thefuck'
 brew 'gource'
 brew 'awscli'
 brew 'tree'
-brew 'mysql-client'
+# brew 'mysql-client' # when using Laravel Herd, use the binaries from this tool! You may have to Symlink the binaries from the Services tab.
 brew 'ansible'
 brew 'yq'
 brew 'watch'
@@ -87,6 +87,7 @@ brew 'restic'
 brew 'fairwindsops/tap/nova'
 brew 'fluxcd/tap/flux'
 brew 'dive'
+brew 'bruno'
 
 # Spatie Medialibrary
 brew 'jpegoptim'
