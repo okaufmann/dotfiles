@@ -485,6 +485,9 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # defaults write com.apple.dock wvous-bl-corner -int 5
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# Disable the bouncing icon in the Dock
+defaults write com.apple.dock no-bouncing -bool TRUE; killall Dock
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
