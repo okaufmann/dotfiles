@@ -11,11 +11,11 @@
     path = ~/.git-config/.gitconfig-work
 
 [gpg]
-    program = gpg
     format = ssh
 
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [commit]
     gpgsign = true
