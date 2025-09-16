@@ -849,3 +849,7 @@ function install-krew-packages() {
     # install netshoot plugin
     kubectl krew install netshoot/netshoot
 }
+
+function restartdock() {
+    killall Dock
+}
