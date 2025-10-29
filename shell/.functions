@@ -853,3 +853,76 @@ function install-krew-packages() {
 function restartdock() {
     killall Dock
 }
+
+function release-pr() {
+    echo "🔍 Checking for existing releases today..."
+
+    # Get today's date in Swiss format (DD.MM.YYYY)
+    local today=$(date +"%d.%m.%Y")
+
+    # Find all PRs with today's date in the title
+    # Format: "Release DD.MM.YYYY.X"
+    local existing_prs=$(gh pr list --state all --json title --jq '.[] | select(.title | startswith("Release '"$today"'")) | .title')
+
+    # Find the highest number for today
+    local max_num=0
+    local count=0
+
+    while IFS= read -r title; do
+        if [[ -n "$title" ]]; then
+            count=$((count + 1))
+
+            # Simple approach: if title starts with "Release $today."
+            # then extract everything after that prefix
+            local prefix="Release ${today}."
+            if [[ "$title" == "$prefix"* ]]; then
+                # Extract the number after "Release DD.MM.YYYY."
+                local suffix="${title#$prefix}"
+
+                # Check if suffix is a number
+                if [[ "$suffix" =~ ^[0-9]+$ ]]; then
+                    local num=$suffix
+                    if (( num > max_num )); then
+                        max_num=$num
+                    fi
+                fi
+            elif [[ "$title" == "Release $today" ]]; then
+                if (( 1 > max_num )); then
+                    max_num=1
+                fi
+            fi
+        fi
+    done <<< "$existing_prs"
+
+    # Show what was found
+    if [ $count -eq 0 ]; then
+        echo "📋 No releases found for today ($today)"
+    else
+        echo "📋 Found $count release(s) for today ($today)"
+        if [ $max_num -gt 0 ]; then
+            echo "   Latest: Release ${today}.${max_num}"
+        fi
+    fi
+
+    # Increment the number (start at 1 if none exist)
+    local new_num=$((max_num + 1))
+
+    # Create the title
+    local pr_title="Release ${today}.${new_num}"
+
+    echo ""
+    echo "🚀 Creating new PR..."
+    echo "   Title:  $pr_title"
+    echo "   Branch: develop → main"
+    echo ""
+
+    # Create the PR
+    if gh pr create --base main --head develop --body "" --title "$pr_title"; then
+        echo ""
+        echo "✅ PR created successfully!"
+    else
+        echo ""
+        echo "❌ Failed to create PR"
+        return 1
+    fi
+}
