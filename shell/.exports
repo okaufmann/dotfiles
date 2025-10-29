@@ -184,4 +184,6 @@ export BAT_THEME="Coldark-Dark"
 # set config path for lazygit
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
