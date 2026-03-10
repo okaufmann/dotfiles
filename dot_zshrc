@@ -221,3 +221,8 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/okaufmann/Library/Application Support/He
 export PATH="$PATH:/Users/okaufmann/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH="$HOME/.spin/bin:$PATH"
+
+
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/okaufmann/Library/Application Support/Herd/config/php/85/"
