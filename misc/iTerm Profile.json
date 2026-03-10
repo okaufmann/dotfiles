@@ -1,10 +1,6 @@
 {
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Blue Component" : 0.36536297202110291,
-    "Red Component" : 1
-  },
-  "Thin Strokes" : 4,
+  "Custom Directory" : "Recycle",
+  "Set Local Environment Vars" : 2,
   "Working Directory" : "\/Users\/wesbos",
   "Prompt Before Closing 2" : 1,
   "Selected Text Color" : {
@@ -24,7 +20,7 @@
     "Blue Component" : 1,
     "Red Component" : 1
   },
-  "Right Option Key Sends" : 2,
+  "Right Option Key Sends" : 0,
   "Show Status Bar" : true,
   "Character Encoding" : 4,
   "Selection Color" : {
@@ -361,6 +357,10 @@
   "Columns" : 150,
   "Visual Bell" : true,
   "ASCII Ligatures" : true,
-  "Custom Directory" : "Recycle",
-  "Set Local Environment Vars" : 2
+  "Thin Strokes" : 4,
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Blue Component" : 0.36536297202110291,
+    "Red Component" : 1
+  }
 }
