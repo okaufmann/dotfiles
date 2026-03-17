@@ -566,7 +566,7 @@ function e() {
     if test -f "composer.json"; then
         phpstorm .
     else
-        code .
+        cursor .
     fi
 }
 
