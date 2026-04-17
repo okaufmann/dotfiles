@@ -12,8 +12,8 @@ alias reloadcli="source $HOME/.zshrc"
 # Openers
 # ---------------
 alias zshrc="chezmoi edit ~/.zshrc"
-alias dotfiles="code $(chezmoi source-path)"
-alias hostfile="sudo code /etc/hosts"
+alias dotfiles="cursor $(chezmoi source-path)"
+alias hostfile="sudo cursor /etc/hosts"
 alias sshconfig="chezmoi edit ~/.ssh/config"
 alias sshconfig-private="chezmoi edit ~/.ssh/conf.d/private"
 alias sshconfig-company="chezmoi edit ~/.ssh/conf.d/company"
@@ -82,7 +82,7 @@ alias p="pnpm $@"
 # List all files colorized in long format
 alias l="ls -laF"
 alias ls="eza -lah --git --icons=always $@"
-alias kubeconfig='code ~/.kube/config'
+alias kubeconfig='cursor ~/.kube/config'
 
 # allow to use watch with aliases
 alias watch='watch '
