@@ -67,6 +67,87 @@ function copysshkey() {
     ssh-copy-id -i "~/.ssh/$filename" $host -p $port
 }
 
+# 1Password SSH public key — config is written to ~/.dotfiles-custom/shell/.exports (not in git)
+function _copykey_export_line() {
+    local name="$1" val="$2"
+    local e="${val//\\/\\\\}"
+    e="${e//\"/\\\"}"
+    echo "export ${name}=\"${e}\""
+}
+
+function _copykey_ensure_1p_env() {
+    [[ -n "${OP_SSH_PUBLIC_KEY_ITEM:-}" ]] && return 0
+
+    local dest="${HOME}/.dotfiles-custom/shell/.exports"
+    if [[ ! -t 0 ]]; then
+        echo "copykey: not interactive; set OP_SSH_PUBLIC_KEY_ITEM and OP_SSH_PUBLIC_KEY_ACCOUNT in ${dest}" >&2
+        return 1
+    fi
+
+    echo "" >&2
+    echo "1Password SSH key is not configured yet. This will append a block to:" >&2
+    echo "  ${dest}" >&2
+    echo "" >&2
+
+    local item account
+    echo -n "1Password item id: " >&2
+    read -r item
+    if [[ -z "${item}" ]]; then
+        echo "Aborted." >&2
+        return 1
+    fi
+
+    echo -n "op account shorthand [my]: " >&2
+    read -r account
+    account=${account:-my}
+
+    mkdir -p "$(dirname "${dest}")"
+    if [[ -f "${dest}" ]]; then
+        awk '
+/^# --- copykey 1Password SSH ---$/ { skip=1; next }
+/^# --- end copykey 1Password ---$/ { skip=0; next }
+!skip { print }
+' "${dest}" > "${dest}.tmp" && mv "${dest}.tmp" "${dest}"
+    fi
+
+    {
+        echo "# --- copykey 1Password SSH ---"
+        _copykey_export_line OP_SSH_PUBLIC_KEY_ITEM "${item}"
+        _copykey_export_line OP_SSH_PUBLIC_KEY_ACCOUNT "${account}"
+        echo "# --- end copykey 1Password ---"
+    } >> "${dest}"
+
+    export OP_SSH_PUBLIC_KEY_ITEM="${item}"
+    export OP_SSH_PUBLIC_KEY_ACCOUNT="${account}"
+    echo "Saved to ${dest}" >&2
+    return 0
+}
+
+function _1p_ssh_public_key() {
+    # Mirrors: op item get <id> --account my  (add --format json for jq)
+    local acct="${OP_SSH_PUBLIC_KEY_ACCOUNT:-${OP_ACCOUNT:-}}"
+    if [[ -n "${acct}" ]]; then
+        op item get "$OP_SSH_PUBLIC_KEY_ITEM" --account "${acct}" --format json
+    else
+        op item get "$OP_SSH_PUBLIC_KEY_ITEM" --format json
+    fi | jq -r '.fields[] | select((.label // "") | ascii_downcase == "public key") | .value' | head -n1
+}
+
+function copykey() {
+    _copykey_ensure_1p_env || return 1
+    local pk
+    pk=$(_1p_ssh_public_key)
+    if [[ -z "${pk}" || "${pk}" == "null" ]]; then
+        echo "copykey: could not read the public key field (check op / account)." >&2
+        return 1
+    fi
+    printf '%s\n' "${pk}" | pbcopy
+}
+
+function publickey() {
+    _copykey_ensure_1p_env || return 1
+    _1p_ssh_public_key
+}
 
 function sshkey() {
     local keysPath="$HOME/.ssh"
