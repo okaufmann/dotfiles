@@ -53,7 +53,59 @@ function digga() {
 }
 
 function removehost() {
-    ssh-keygen -R "$1"
+    local host="$1"
+    local kh="${HOME}/.ssh/known_hosts"
+
+    if [[ -z "$host" ]]; then
+        echo "usage: removehost <hostname|ip>" >&2
+        return 1
+    fi
+    if [[ ! -f "$kh" ]]; then
+        echo "removehost: $kh does not exist" >&2
+        return 1
+    fi
+
+    local out rc
+    out=$(ssh-keygen -R "$host" 2>&1)
+    rc=$?
+
+    # Happy path: file is valid, just print ssh-keygen's output and exit.
+    if [[ "$out" != *"is not a valid known_hosts file"* ]]; then
+        printf '%s\n' "$out"
+        return $rc
+    fi
+
+    # ssh-keygen refuses to rewrite known_hosts if it contains invalid entries
+    # (e.g. legacy ssh-dss keys). Strip those lines silently and retry.
+    local bad_lines
+    bad_lines=$(printf '%s\n' "$out" | sed -nE 's/.*:([0-9]+): invalid line.*/\1/p' | sort -rnu)
+    if [[ -z "$bad_lines" ]]; then
+        printf '%s\n' "$out"
+        return $rc
+    fi
+
+    local count backup
+    count=$(printf '%s\n' "$bad_lines" | wc -l | tr -d ' ')
+    backup="${kh}.bak.$(date +%Y%m%d%H%M%S)"
+    cp -p "$kh" "$backup" || return 1
+
+    local sed_script="" n
+    while IFS= read -r n; do
+        sed_script+="${n}d;"
+    done <<< "$bad_lines"
+
+    local tmp
+    tmp=$(mktemp)
+    if ! sed -E "$sed_script" "$kh" > "$tmp"; then
+        rm -f "$tmp"
+        echo "removehost: failed to filter $kh" >&2
+        return 1
+    fi
+    mv "$tmp" "$kh"
+    chmod 600 "$kh"
+
+    echo "removehost: removed ${count} legacy/invalid entries from ${kh} (backup: ${backup})" >&2
+    ssh-keygen -R "$host"
 }
 
 function scanhost() {
