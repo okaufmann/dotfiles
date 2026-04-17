@@ -60,11 +60,6 @@ alias rector="vendor/bin/rector $@"
 # to kill endless loops in Tinkerwell
 alias killtinker='ps ax | grep tinker_prepared.phar | grep -v grep | awk '\''{print $1}'\'' | while read pid; do echo "Killing process $pid"; kill $pid; done'
 
-# SSH
-# ---------------
-alias copykey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
-alias publickey="cat ~/.ssh/id_ed25519.pub"
-
 # Tool replacements & helpers
 # ---------------
 alias man=tldr
