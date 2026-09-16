@@ -138,7 +138,7 @@ brew 'cursor'
 cask 'tinkerwell'
 cask '1password-cli'
 cask 'mackup'
-cask 'sensiblesidebuttons'
+# cask 'sensiblesidebuttons'
 # cask 'ray'
 # cask 'helo'
 
