@@ -21,7 +21,7 @@ function archive() {
 }
 
 function ips() {
-    nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
+    nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 1.0.0.1 77.88.8.8)
     type=${2:-A}
     for i in "${nameservers[@]}";
     do
@@ -1058,4 +1058,18 @@ function release-pr() {
         echo "❌ Failed to create PR"
         return 1
     fi
+}
+
+# 3CX-kompatible Ansage: WAV, PCM 8 kHz, 16-bit, Mono, normalisiert
+function 3cxwav() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: 3cxwav <datei> [datei...]" >&2
+    return 1
+  fi
+  for f in "$@"; do
+    ffmpeg -hide_banner -loglevel warning -i "$f" \
+      -ar 8000 -ac 1 -acodec pcm_s16le \
+      -af "loudnorm=I=-16:TP=-1.5,highpass=f=200" \
+      "${f%.*}_3cx.wav" && echo "→ ${f%.*}_3cx.wav"
+  done
 }
