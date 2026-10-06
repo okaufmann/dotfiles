@@ -10,6 +10,7 @@ tap 'ngrok/ngrok'
 tap 'siderolabs/tap'
 tap 'fairwindsops/tap'
 tap 'fluxcd/tap'
+tap '514-labs/tap'
 
 # Binaries
 brew 'chezmoi'
@@ -28,6 +29,7 @@ brew 'ncdu'
 brew 'hub'
 brew 'tldr'
 brew 'bind' # used to have dig as binary
+brew '514-labs/tap/dnsglobe' # used by ips
 brew 'nmap'
 brew 'fzf'
 brew 'fd'
