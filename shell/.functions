@@ -20,15 +20,13 @@ function archive() {
     zip -r "$1".zip "$1" ;
 }
 
+# Resolver list: ~/.config/dnsglobe/config.toml
 function ips() {
-    nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 1.0.0.1 77.88.8.8)
-    type=${2:-A}
-    for i in "${nameservers[@]}";
-    do
-        echo "$i"
-        dig @"$i" +nocmd "$1" $type +multiline +noall +answer
-        echo
-    done
+    if [ -t 1 ]; then
+        dnsglobe "$@"
+    else
+        dnsglobe --once "$@"
+    fi
 }
 
 function whatgit() {
