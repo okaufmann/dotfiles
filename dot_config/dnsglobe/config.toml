@@ -1,0 +1,177 @@
+# dnsglobe has no per-resolver exclude, so this is its built-in list (v0.5.0,
+# src/resolvers.rs) minus the CN, RU and IL resolvers. Configured entries
+# lose the operator-specific site probes; NSID still reports the site.
+replace = true
+
+# Global anycast
+[[resolvers]]
+name = "Google Public DNS"
+ip = "8.8.8.8"
+location = "Anycast"
+lat = 37.4
+lon = -122.1
+
+[[resolvers]]
+name = "Cloudflare"
+ip = "1.1.1.1"
+location = "Anycast"
+lat = 37.8
+lon = -122.4
+
+[[resolvers]]
+name = "Quad9"
+ip = "9.9.9.9"
+location = "CH/Any"
+lat = 47.4
+lon = 8.5
+
+[[resolvers]]
+name = "OpenDNS (Cisco)"
+ip = "208.67.222.222"
+location = "US/Any"
+lat = 33.9
+lon = -118.2
+
+[[resolvers]]
+name = "CleanBrowsing"
+ip = "185.228.168.9"
+location = "Anycast"
+lat = 33.4
+lon = -112.0
+
+# North America
+[[resolvers]]
+name = "Level3"
+ip = "4.2.2.2"
+location = "US"
+lat = 39.7
+lon = -105.0
+
+[[resolvers]]
+name = "Lumen (Qwest)"
+ip = "205.171.3.66"
+location = "US"
+lat = 40.4
+lon = -104.0
+
+[[resolvers]]
+name = "Hurricane Electric"
+ip = "74.82.42.42"
+location = "US"
+lat = 37.6
+lon = -122.0
+
+[[resolvers]]
+name = "Neustar UltraDNS"
+ip = "64.6.64.6"
+location = "US/Any"
+lat = 39.0
+lon = -77.5
+
+[[resolvers]]
+name = "Comodo Secure DNS"
+ip = "8.26.56.26"
+location = "US"
+lat = 40.9
+lon = -74.2
+
+[[resolvers]]
+name = "FortiGuard"
+ip = "208.91.112.53"
+location = "US/Any"
+lat = 37.3
+lon = -121.9
+
+[[resolvers]]
+name = "CIRA Canadian Shield"
+ip = "149.112.121.10"
+location = "CA"
+lat = 45.4
+lon = -75.7
+
+[[resolvers]]
+name = "ControlD"
+ip = "76.76.2.0"
+location = "CA/Any"
+lat = 43.7
+lon = -79.4
+
+# Europe
+[[resolvers]]
+name = "DNS4EU"
+ip = "86.54.11.100"
+location = "EU/Any"
+lat = 50.1
+lon = 14.4
+
+[[resolvers]]
+name = "CZ.NIC ODVR"
+ip = "193.17.47.1"
+location = "CZ"
+lat = 49.9
+lon = 15.3
+
+[[resolvers]]
+name = "AdGuard DNS"
+ip = "94.140.14.14"
+location = "EU/Any"
+lat = 34.7
+lon = 33.0
+
+[[resolvers]]
+name = "Gcore DNS"
+ip = "95.85.95.85"
+location = "LU/Any"
+lat = 49.6
+lon = 6.1
+
+[[resolvers]]
+name = "DNS.SB"
+ip = "185.222.222.222"
+location = "DE/Any"
+lat = 50.1
+lon = 8.7
+
+# East Asia
+[[resolvers]]
+name = "KT (Kornet)"
+ip = "168.126.63.1"
+location = "KR"
+lat = 37.6
+lon = 127.0
+
+[[resolvers]]
+name = "LG U+"
+ip = "164.124.101.2"
+location = "KR"
+lat = 36.5
+lon = 127.9
+
+[[resolvers]]
+name = "HiNet (Chunghwa)"
+ip = "168.95.1.1"
+location = "TW"
+lat = 25.0
+lon = 121.6
+
+# Southern hemisphere
+[[resolvers]]
+name = "Telstra"
+ip = "139.130.4.4"
+location = "AU"
+lat = -33.9
+lon = 151.2
+
+[[resolvers]]
+name = "SafeSurfer"
+ip = "104.197.28.121"
+location = "NZ"
+lat = -36.8
+lon = 174.8
+
+[[resolvers]]
+name = "UOL"
+ip = "200.221.11.100"
+location = "BR"
+lat = -23.5
+lon = -46.6
